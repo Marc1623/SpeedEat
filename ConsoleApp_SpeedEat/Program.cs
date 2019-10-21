@@ -6,7 +6,7 @@ namespace ConsoleApp_SpeedEat
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("nike ta mere!");
         }
     }
 }
