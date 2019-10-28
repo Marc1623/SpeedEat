@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.29306.81
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp_SpeedEat", "ConsoleApp_SpeedEat\ConsoleApp_SpeedEat.csproj", "{57C13F1B-06F3-4C58-B1A8-DC50EA9D21D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{8B43ED52-C1DB-4CB1-B73E-EE7555FBBCC5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAL", "DAL\DAL.csproj", "{8B43ED52-C1DB-4CB1-B73E-EE7555FBBCC5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTO", "DTO\DTO.csproj", "{CC1FFAC8-50F7-4D68-A8B6-E8B4CC0D4563}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{8B43ED52-C1DB-4CB1-B73E-EE7555FBBCC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B43ED52-C1DB-4CB1-B73E-EE7555FBBCC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B43ED52-C1DB-4CB1-B73E-EE7555FBBCC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC1FFAC8-50F7-4D68-A8B6-E8B4CC0D4563}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC1FFAC8-50F7-4D68-A8B6-E8B4CC0D4563}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC1FFAC8-50F7-4D68-A8B6-E8B4CC0D4563}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC1FFAC8-50F7-4D68-A8B6-E8B4CC0D4563}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
