@@ -25,7 +25,7 @@ namespace DAL
             {
                 using (SqlConnection cn = new SqlConnection(ConnectionStrings))
                 {
-                    string query = "SELECT * from Hotels";
+                    string query = "SELECT * from Cities";
                     SqlCommand cmd = new SqlCommand(query, cn);
 
                     cn.Open();
