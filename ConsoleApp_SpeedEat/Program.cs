@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.Configuration;
+using System;
 using System.IO;
 
 namespace ConsoleApp_SpeedEat
@@ -15,5 +16,5 @@ namespace ConsoleApp_SpeedEat
         {
             Console.WriteLine("nike ta mere!");
         }
-    }
+    } // DROP TABLE Customers2
 }
