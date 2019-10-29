@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace DTO
 {
-    public class Customers
-
+    public class Deliverer
     {
-        public int IdCustomers { get; set; }
+        public int IdDeliverer { get; set; }
 
         public string FirstName { get; set; }
 
@@ -25,7 +26,7 @@ namespace DTO
 
         public override string ToString()
         {
-            return $"{IdCustomers}|{FirstName}|{LastName}|{Phone_Number}|{Address}|{Login}|{Password}|{Created_At}|{Fk_Id_Cities}";
+            return $"{IdDeliverer}|{FirstName}|{LastName}|{Phone_Number}|{Address}|{Login}|{Password}|{Created_At}|{Fk_Id_Cities}";
         }
     }
 }

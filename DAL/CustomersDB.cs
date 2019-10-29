@@ -16,9 +16,9 @@ namespace DAL
             Configuration = configuration;
         }
 
-        public List<Customers> GetAllCustomers()
+        public List<Deliverer> GetAllCustomers()
         {
-            List<Customers> results = null;
+            List<Deliverer> results = null;
             string ConnectionStrings = Configuration.GetConnectionString("DefaultConnection");
 
             try
@@ -35,11 +35,11 @@ namespace DAL
                         while (dr.Read())
                         {
                             if (results == null)
-                                results = new List<Customers>();
+                                results = new List<Deliverer>();
 
-                            Customers customers = new Customers();
+                            Deliverer customers = new Deliverer();
 
-                            customers.IdCustomers = (int)dr["IdHotel"];
+                            customers.IdCustomers = (int)dr["IdCustomers"];
                             customers.FirstName = (String)dr["FirstName"];
                             customers.LastName = (String)dr["LastName"];
                             customers.Phone_Number = (String)dr["Phone_Number"];
@@ -61,9 +61,9 @@ namespace DAL
             return results;
         }
 
-        public Customers GetCustomers(int id)
+        public Deliverer GetCustomers(int id)
         {
-            Customers customers = null;
+            Deliverer customers = null;
             string connectionString = Configuration.GetConnectionString("DefaultConnection");
 
             try
@@ -80,10 +80,10 @@ namespace DAL
                     {
                         if (dr.Read())
                         {
-                            customers = new Customers();
+                            customers = new Deliverer();
 
                             if (dr["IdHotel"] != null)
-                                customers.IdCustomers = (int)dr["IdHotel"];
+                                customers.IdCustomers = (int)dr["IdCustomers"];
 
                             if (dr["Name"] != null)
                                 customers.FirstName = (string)dr["Name"];
@@ -121,7 +121,7 @@ namespace DAL
             return customers;
         }
 
-        public Customers AddCustomers(Customers customers)
+        public Deliverer AddCustomers(Deliverer customers)
         {
 
 
@@ -156,7 +156,7 @@ namespace DAL
             return customers;
         }
 
-        public Customers UpdateCustomers(Customers customers)
+        public Deliverer UpdateCustomers(Deliverer customers)
         {
             int result = 0;
 

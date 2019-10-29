@@ -18,22 +18,22 @@ namespace BLL
             CustomersDB = new CustomersDB(configuration);
         }
 
-        public List<Customers> GetAllCustomers()
+        public List<Deliverer> GetAllCustomers()
         {
             return CustomersDB.GetAllCustomers();
         }
 
-        public Customers GetCustomers(int id)
+        public Deliverer GetCustomers(int id)
         {
             return CustomersDB.GetCustomers(id);
         }
 
-        public Customers AddCustomers(Customers customers)
+        public Deliverer AddCustomers(Deliverer customers)
         {
             return CustomersDB.AddCustomers(customers);
         }
 
-        public Customers UpdateCustomers(Customers customers)
+        public Deliverer UpdateCustomers(Deliverer customers)
         {
             return CustomersDB.UpdateCustomers(customers);
         }

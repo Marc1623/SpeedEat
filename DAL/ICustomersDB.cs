@@ -10,10 +10,10 @@ namespace DAL
     public interface ICustomersDB
     {
         IConfiguration Configuration { get; }
-        List<Customers> GetAllCustomers();
-        Customers GetCustomers(int id);
-        Customers AddCustomers(Customers customers);
-        Customers UpdateCustomers(Customers customers);
+        List<Deliverer> GetAllCustomers();
+        Deliverer GetCustomers(int id);
+        Deliverer AddCustomers(Deliverer customers);
+        Deliverer UpdateCustomers(Deliverer customers);
         int DeleteCustomers(int id);
     }
 
