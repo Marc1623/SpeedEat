@@ -16,7 +16,7 @@ namespace DAL
             Configuration = configuration;
         }
 
-        public List<Cities> GetAllHotels()
+        public List<Cities> GetAllCities()
         {
             List<Cities> results = null;
             string ConnectionStrings = Configuration.GetConnectionString("DefaultConnection");
@@ -41,11 +41,11 @@ namespace DAL
 
                             cities.IdCity = (int)dr["IdCity"];
                             cities.Name = (String)dr["Name"];
-                            cities.Zip_Code = (int)dr["Description"];
-                            cities.Country = (String)dr["Location"];
-                            cities.Created_at = (String)dr["Category"]; 
+                            cities.Zip_Code = (int)dr["Zip_Code"];
+                            cities.Country = (String)dr["Country"];
+                            cities.Created_At = (String)dr["Created_At"]; 
 
-                            results.Add(hotel);
+                            results.Add(cities);
                         }
                     }
                 }
@@ -78,35 +78,20 @@ namespace DAL
                         {
                             cities = new Cities();
 
-                            if (dr["IdHotel"] != null)
-                                cities.IdCities = (int)dr["IdCities"];
+                            if (dr["IdCities"] != null)
+                                cities.IdCity = (int)dr["IdCities"];
 
                             if (dr["Name"] != null)
-                                hotel.Name = (string)dr["Name"];
+                                cities.Name = (string)dr["Name"];
 
-                            if (dr["Description"] != null)
-                                hotel.Description = (string)dr["Description"];
+                            if (dr["Zip_Code"] != null)
+                                cities.Zip_Code = (int)dr["Zip_Code"];
 
-                            if (dr["Location"] != null)
-                                hotel.Location = (string)dr["Location"];
+                            if (dr["Country"] != null)
+                                cities.Country = (string)dr["Country"];
 
-                            if (dr["Category"] != null)
-                                hotel.Category = (int)dr["Category"];
-
-                            if (dr["HasWifi"] != null)
-                                hotel.HasWifi = (bool)dr["HasWifi"];
-
-                            if (dr["HasParking"] != null)
-                                hotel.HasParking = (bool)dr["HasParking"];
-
-                            if (dr["Phone"] != null)
-                                hotel.Phone = (string)dr["Phone"];
-
-                            if (dr["Email"] != null)
-                                hotel.Email = (string)dr["Email"];
-
-                            if (dr["Website"] != null)
-                                hotel.Website = (string)dr["Website"];
+                            if (dr["Created_At"] != null)
+                                cities.Created_At = (string)dr["Created_At"];
                         }
                     }
                 }
@@ -116,10 +101,10 @@ namespace DAL
                 throw e;
             }
 
-            return hotel;
+            return cities;
         }
 
-        public Hotel AddHotel(Hotel hotel)
+        public Cities AddCities(Cities cities)
         {
 
 
@@ -129,21 +114,16 @@ namespace DAL
             {
                 using (SqlConnection cn = new SqlConnection(connectionString))
                 {
-                    string query = "Insert into Hotels(Name, Description, Location, Category, HasWifi, HasParking, Phone, Email, Website) values(@Name, @Description, @Location, @Category, @HasWifi, @HasParking, @Phone, @Email, @Website); SELECT SCOPE_IDENTITY()";
+                    string query = "Insert into Cities(Name, Zip_Code, Country, Created_At) values(@Name, @Zip_Code, @Country, @Created_At); SELECT SCOPE_IDENTITY()";
                     SqlCommand cmd = new SqlCommand(query, cn);
-                    cmd.Parameters.AddWithValue("@Name", hotel.Name);
-                    cmd.Parameters.AddWithValue("@Description", hotel.Description);
-                    cmd.Parameters.AddWithValue("@Location", hotel.Location);
-                    cmd.Parameters.AddWithValue("@Category", hotel.Category);
-                    cmd.Parameters.AddWithValue("@HasWifi", hotel.HasWifi);
-                    cmd.Parameters.AddWithValue("@HasParking", hotel.HasParking);
-                    cmd.Parameters.AddWithValue("@Phone", hotel.Phone);
-                    cmd.Parameters.AddWithValue("@Email", hotel.Email);
-                    cmd.Parameters.AddWithValue("@Website", hotel.Website);
+                    cmd.Parameters.AddWithValue("@Name", cities.Name);
+                    cmd.Parameters.AddWithValue("@Zip_Code", cities.Zip_Code);
+                    cmd.Parameters.AddWithValue("@Country", cities.Country);
+                    cmd.Parameters.AddWithValue("@Created_At", cities.Created_At);
 
                     cn.Open();
 
-                    hotel.IdHotel = Convert.ToInt32(cmd.ExecuteScalar());
+                    cities.IdCity = Convert.ToInt32(cmd.ExecuteScalar());
 
                 }
             }
@@ -152,10 +132,11 @@ namespace DAL
                 throw e;
             }
 
-            return hotel;
+            return cities;
         }
 
-        public Hotel UpdateHotel(Hotel hotel)
+
+        public int DeleteCities(int id)
         {
             int result = 0;
 
@@ -165,44 +146,7 @@ namespace DAL
             {
                 using (SqlConnection cn = new SqlConnection(connectionString))
                 {
-                    string query = "UPDATE Hotels SET Name = @Name, Description = @Description, Location = @Location, Category = @Category, HasWifi = @HasWifi, HasParking = @HasParking, Phone = @Phone, Email = @Email, Website = @Website WHERE IdHotel = @id";
-                    SqlCommand cmd = new SqlCommand(query, cn);
-                    cmd.Parameters.AddWithValue("@id", hotel.IdHotel);
-                    cmd.Parameters.AddWithValue("@Name", hotel.Name);
-                    cmd.Parameters.AddWithValue("@Description", hotel.Description);
-                    cmd.Parameters.AddWithValue("@Location", hotel.Location);
-                    cmd.Parameters.AddWithValue("@Category", hotel.Category);
-                    cmd.Parameters.AddWithValue("@HasWifi", hotel.HasWifi);
-                    cmd.Parameters.AddWithValue("@HasParking", hotel.HasParking);
-                    cmd.Parameters.AddWithValue("@Phone", hotel.Phone);
-                    cmd.Parameters.AddWithValue("@Email", hotel.Email);
-                    cmd.Parameters.AddWithValue("@Website", hotel.Website);
-
-                    cn.Open();
-
-                    result = cmd.ExecuteNonQuery();
-
-                }
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-
-            return hotel;
-        }
-
-        public int DeleteHotel(int id)
-        {
-            int result = 0;
-
-            string connectionString = Configuration.GetConnectionString("DefaultConnection");
-
-            try
-            {
-                using (SqlConnection cn = new SqlConnection(connectionString))
-                {
-                    string query = "DELETE from Hotels where IdHotel = @id";
+                    string query = "DELETE from Cities where IdCities = @id";
                     SqlCommand cmd = new SqlCommand(query, cn);
                     cmd.Parameters.AddWithValue("@id", id);
 

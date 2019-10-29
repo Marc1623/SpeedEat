@@ -1,17 +1,20 @@
-﻿using DTO;
-using Microsoft.Extensions.Configuration;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using DAL;
+using DTO;
 
-
-namespace DAL
+namespace BLL
 {
-    public interface ICitiesDB
+    public interface ICitiesManager
     {
-        IConfiguration Configuration { get; }
+
+        ICitiesDB HotelsDb { get; }
+
         List<Cities> GetAllCities();
+
         Cities GetCities(int id);
+
         int DeleteCities(int id);
     }
 
