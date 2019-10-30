@@ -40,8 +40,8 @@ namespace DAL
                             Deliverer deliverer = new Deliverer();
 
                             deliverer.IdDeliverer = (int)dr["IdDeliverer"];
-                            deliverer.FirstName = (String)dr["FirstName"];
-                            deliverer.LastName = (String)dr["LastName"];
+                            deliverer.Start_Time = (String)dr["FirstName"];
+                            deliverer.End_Time = (String)dr["LastName"];
                             deliverer.Phone_Number = (String)dr["Phone_Number"];
                             deliverer.Address = (String)dr["Address"];
                             deliverer.Login = (String)dr["Login"];
@@ -86,10 +86,10 @@ namespace DAL
                                 deliverer.IdDeliverer = (int)dr["IdDeliverer"];
 
                             if (dr["Name"] != null)
-                                deliverer.FirstName = (string)dr["Name"];
+                                deliverer.Start_Time = (string)dr["Name"];
 
                             if (dr["LastName"] != null)
-                                deliverer.LastName = (string)dr["LastName"];
+                                deliverer.End_Time = (string)dr["LastName"];
 
                             if (dr["Phone_Number"] != null)
                                 deliverer.Phone_Number = (string)dr["Phone_Number"];
@@ -133,8 +133,8 @@ namespace DAL
                 {
                     string query = "Insert into Deliverer(FirstName, LastName, Phone_Number, Address, Login, Password, Created_At, Fk_Id_Cities) values(@FirstName, @LastName, @Phone_Number, @Address, @Login, @Password, @Created_At, @Fk_Id_Cities); SELECT SCOPE_IDENTITY()";
                     SqlCommand cmd = new SqlCommand(query, cn);
-                    cmd.Parameters.AddWithValue("@FirstName", deliverer.FirstName);
-                    cmd.Parameters.AddWithValue("@LastName", deliverer.LastName);
+                    cmd.Parameters.AddWithValue("@FirstName", deliverer.Start_Time);
+                    cmd.Parameters.AddWithValue("@LastName", deliverer.End_Time);
                     cmd.Parameters.AddWithValue("@Phone_Number", deliverer.Phone_Number);
                     cmd.Parameters.AddWithValue("@Address", deliverer.Address);
                     cmd.Parameters.AddWithValue("@Login", deliverer.Login);
@@ -166,10 +166,10 @@ namespace DAL
             {
                 using (SqlConnection cn = new SqlConnection(connectionString))
                 {
-                    string query = "UPDATE Deliverer SET FirstName = @FirstName, LastName = @LastName, Phone_Number = @Phone_Number, Address = @Address, Login = @Login, Password = @Password, Created_At = @Created_At, Fk_Id_Cities = @Fk_Id_Cities WHERE IdCustomers = @id";
+                    string query = "UPDATE Deliverer SET FirstName = @FirstName, LastName = @LastName, Phone_Number = @Phone_Number, Address = @Address, Login = @Login, Password = @Password, Created_At = @Created_At, Fk_Id_Cities = @Fk_Id_Cities WHERE IdDeliverer = @id";
                     SqlCommand cmd = new SqlCommand(query, cn);
-                    cmd.Parameters.AddWithValue("@FirstName", deliverer.FirstName);
-                    cmd.Parameters.AddWithValue("@LastName", deliverer.LastName);
+                    cmd.Parameters.AddWithValue("@FirstName", deliverer.Start_Time);
+                    cmd.Parameters.AddWithValue("@LastName", deliverer.End_Time);
                     cmd.Parameters.AddWithValue("@Phone_Number", deliverer.Phone_Number);
                     cmd.Parameters.AddWithValue("@Address", deliverer.Address);
                     cmd.Parameters.AddWithValue("@Login", deliverer.Login);

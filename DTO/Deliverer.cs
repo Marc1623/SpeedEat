@@ -20,13 +20,13 @@ namespace DTO
 
         public string Password { get; set; }
 
-        public string Created_At { get; set; }
+        public string DelivererCreated_At { get; set; }
 
         public int Fk_Id_Cities { get; set; }
 
         public override string ToString()
         {
-            return $"{IdDeliverer}|{FirstName}|{LastName}|{Phone_Number}|{Address}|{Login}|{Password}|{Created_At}|{Fk_Id_Cities}";
+            return $"{IdDeliverer}|{FirstName}|{LastName}|{Phone_Number}|{Address}|{Login}|{Password}|{DelivererCreated_At}|{Fk_Id_Cities}";
         }
     }
 }
