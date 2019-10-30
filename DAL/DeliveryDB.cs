@@ -16,9 +16,9 @@ namespace DAL
             Configuration = configuration;
         }
 
-        public List<Deliverer> GetAllDelivery()
+        public List<Deliverey> GetAllDelivery()
         {
-            List<Deliverer> results = null;
+            List<Deliverey> results = null;
             string ConnectionStrings = Configuration.GetConnectionString("DefaultConnection");
 
             try
@@ -35,17 +35,17 @@ namespace DAL
                         while (dr.Read())
                         {
                             if (results == null)
-                                results = new List<Deliverer>();
+                                results = new List<Deliverey>();
 
-                            Deliverer delivery = new Deliverer();
+                            Deliverey deliverey = new Deliverey();
 
-                            delivery.IdDelivery = (int)dr["IdCustomers"];
-                            delivery.Start_Time = (String)dr["Start_Time"];
-                            delivery.End_Time = (String)dr["End_Time"];
-                            delivery.Created_At = (String)dr["Created_At"];
-                            delivery.Fk_Id_Dliverer = (int)dr["Fk_Id_Dliverer"];
+                            deliverey.IdDelivery = (int)dr["IdCustomers"];
+                            deliverey.Start_Time = (String)dr["Start_Time"];
+                            deliverey.End_Time = (String)dr["End_Time"];
+                            deliverey.Created_At = (String)dr["Created_At"];
+                            deliverey.Fk_Id_Deliverer = (int)dr["Fk_Id_Dliverer"];
 
-                            results.Add(delivery);
+                            results.Add(deliverey);
                         }
                     }
                 }
@@ -57,9 +57,9 @@ namespace DAL
             return results;
         }
 
-        public Deliverer GetDelivery(int id)
+        public Deliverey GetDelivery(int id)
         {
-            Deliverer delivery = null;
+            Deliverey deliverey = null;
             string connectionString = Configuration.GetConnectionString("DefaultConnection");
 
             try
@@ -76,22 +76,22 @@ namespace DAL
                     {
                         if (dr.Read())
                         {
-                            delivery = new Deliverer();
+                            deliverey = new Deliverey();
 
-                            if (dr["IdHotel"] != null)
-                                delivery.IdDelivery = (int)dr["IdDelivery"];
+                            if (dr["IdDelivery"] != null)
+                                deliverey.IdDelivery = (int)dr["IdDelivery"];
 
-                            if (dr["Name"] != null)
-                                delivery.Start_Time = (string)dr["Start_Time"];
+                            if (dr["Start_Time"] != null)
+                                deliverey.Start_Time = (string)dr["Start_Time"];
 
-                            if (dr["LastName"] != null)
-                                delivery.End_Time = (string)dr["End_Time"];
+                            if (dr["End_Time"] != null)
+                                deliverey.End_Time = (string)dr["End_Time"];
 
                             if (dr["Created_At"] != null)
-                                delivery.Created_At = (string)dr["Created_At"];
+                                deliverey.Created_At = (string)dr["Created_At"];
 
-                            if (dr["Fk_Id_Cities"] != null)
-                                delivery.Fk_Id_Dliverer = (int)dr["Fk_Id_Dliverer"];
+                            if (dr["Fk_Id_Delivery"] != null)
+                                deliverey.Fk_Id_Deliverer = (int)dr["Fk_Id_Delivery"];
 
                         }
                     }
@@ -102,10 +102,10 @@ namespace DAL
                 throw e;
             }
 
-            return delivery;
+            return deliverey;
         }
 
-        public Deliverer AddCustomers(Deliverer customers)
+        public Deliverey AddDelivery(Deliverey delivery)
         {
 
 
@@ -115,20 +115,17 @@ namespace DAL
             {
                 using (SqlConnection cn = new SqlConnection(connectionString))
                 {
-                    string query = "Insert into Customers(FirstName, LastName, Phone_Number, Address, Login, Password, Created_At, Fk_Id_Cities) values(@FirstName, @LastName, @Phone_Number, @Address, @Login, @Password, @Created_At, @Fk_Id_Cities); SELECT SCOPE_IDENTITY()";
+                    string query = "Insert into Delivery(Start_Time, End_Time, Created_At, Fk_Id_Deliverer) values(@Start_Time, @End_Time, @Created_At, @Fk_Id_Deliverer); SELECT SCOPE_IDENTITY()";
                     SqlCommand cmd = new SqlCommand(query, cn);
-                    cmd.Parameters.AddWithValue("@FirstName", customers.Start_Time);
-                    cmd.Parameters.AddWithValue("@LastName", customers.End_Time);
-                    cmd.Parameters.AddWithValue("@Phone_Number", customers.Phone_Number);
-                    cmd.Parameters.AddWithValue("@Address", customers.Address);
-                    cmd.Parameters.AddWithValue("@Login", customers.Login);
-                    cmd.Parameters.AddWithValue("@Password", customers.Password);
-                    cmd.Parameters.AddWithValue("@Created_At", customers.Created_At);
-                    cmd.Parameters.AddWithValue("@Fk_Id_Cities", customers.Fk_Id_Cities);
+                    cmd.Parameters.AddWithValue("@FirstName", delivery.Start_Time);
+                    cmd.Parameters.AddWithValue("@LastName", delivery.End_Time);
+                    cmd.Parameters.AddWithValue("@Phone_Number", delivery.Created_At);
+                    cmd.Parameters.AddWithValue("@Address", delivery.Fk_Id_Deliverer);
+                    
 
                     cn.Open();
 
-                    customers.IdCustomers = Convert.ToInt32(cmd.ExecuteScalar());
+                    delivery.IdDelivery = Convert.ToInt32(cmd.ExecuteScalar());
 
                 }
             }
@@ -137,10 +134,10 @@ namespace DAL
                 throw e;
             }
 
-            return customers;
+            return delivery;
         }
 
-        public Deliverer UpdateCustomers(Deliverer customers)
+        public Deliverey UpdateDelivery(Deliverey delivery)
         {
             int result = 0;
 
@@ -150,16 +147,12 @@ namespace DAL
             {
                 using (SqlConnection cn = new SqlConnection(connectionString))
                 {
-                    string query = "UPDATE Customers SET FirstName = @FirstName, LastName = @LastName, Phone_Number = @Phone_Number, Address = @Address, Login = @Login, Password = @Password, Created_At = @Created_At, Fk_Id_Cities = @Fk_Id_Cities WHERE IdCustomers = @id";
+                    string query = "UPDATE Delivery SET Start_Time = @Start_Time, End_Time = @End_Time, Created_At = @Created_At, Fk_Id_Deliverer = @Fk_Id_Deliverer WHERE IdDelivery = @id";
                     SqlCommand cmd = new SqlCommand(query, cn);
-                    cmd.Parameters.AddWithValue("@FirstName", customers.Start_Time);
-                    cmd.Parameters.AddWithValue("@LastName", customers.End_Time);
-                    cmd.Parameters.AddWithValue("@Phone_Number", customers.Phone_Number);
-                    cmd.Parameters.AddWithValue("@Address", customers.Address);
-                    cmd.Parameters.AddWithValue("@Login", customers.Login);
-                    cmd.Parameters.AddWithValue("@Password", customers.Password);
-                    cmd.Parameters.AddWithValue("@Created_At", customers.Created_At);
-                    cmd.Parameters.AddWithValue("@Fk_Id_Cities", customers.Fk_Id_Cities);
+                    cmd.Parameters.AddWithValue("@Start_Time", delivery.Start_Time);
+                    cmd.Parameters.AddWithValue("@End_Time", delivery.End_Time);
+                    cmd.Parameters.AddWithValue("@Created_At", delivery.Created_At);
+                    cmd.Parameters.AddWithValue("@Fk_Id_Deliverer", delivery.Fk_Id_Deliverer);
 
                     cn.Open();
 
@@ -172,10 +165,10 @@ namespace DAL
                 throw e;
             }
 
-            return customers;
+            return delivery;
         }
 
-        public int DeleteCustomers(int id)
+        public int DeleteDelivery(int id)
         {
             int result = 0;
 
@@ -185,7 +178,7 @@ namespace DAL
             {
                 using (SqlConnection cn = new SqlConnection(connectionString))
                 {
-                    string query = "DELETE from Customers where IdCustomers = @id";
+                    string query = "DELETE from Delivery where IdDelivery = @id";
                     SqlCommand cmd = new SqlCommand(query, cn);
                     cmd.Parameters.AddWithValue("@id", id);
 
