@@ -11,13 +11,13 @@ namespace BLL
 
         ICustomersDB CustomersDB { get; }
 
-        List<Deliverer> GetAllCustomers();
+        List<Customers> GetAllCustomers();
 
-        Deliverer GetCustomers(int id);
+        Customers GetCustomers(int id);
 
-        Deliverer AddCustomers(Deliverer customers);
+        Customers AddCustomers(Customers customers);
 
-        Deliverer UpdateCustomers(Deliverer customers);
+        Customers UpdateCustomers(Customers customers);
 
         int DeleteCustomers(int id);
     }

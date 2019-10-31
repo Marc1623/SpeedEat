@@ -16,9 +16,9 @@ namespace DAL
             Configuration = configuration;
         }
 
-        public List<Deliverer> GetAllCustomers()
+        public List<Customers> GetAllCustomers()
         {
-            List<Deliverer> results = null;
+            List<Customers> results = null;
             string ConnectionStrings = Configuration.GetConnectionString("DefaultConnection");
 
             try
@@ -35,19 +35,19 @@ namespace DAL
                         while (dr.Read())
                         {
                             if (results == null)
-                                results = new List<Deliverer>();
+                                results = new List<Customers>();
 
-                            Deliverer customers = new Deliverer();
+                            Customers customers = new Customers();
 
                             customers.IdCustomers = (int)dr["IdCustomers"];
-                            customers.FirstName = (String)dr["FirstName"];
-                            customers.LastName = (String)dr["LastName"];
-                            customers.Phone_Number = (String)dr["Phone_Number"];
-                            customers.Address = (String)dr["Address"];
-                            customers.Login = (String)dr["Login"];
-                            customers.Password = (String)dr["Password"];
-                            customers.Created_At = (String)dr["Created_At"];
-                            customers.Fk_Id_Cities = (int)dr["Fk_Id_Cities"];
+                            customers.CustomerstName = (String)dr["CustomerstName"];
+                            customers.CustomersLastName = (String)dr["CustomersLastName"];
+                            customers.CustomersPhone = (String)dr["CustomersPhone"];
+                            customers.CustomersAddress = (String)dr["CustomersAddress"];
+                            customers.CustomersLogin = (String)dr["CustomersLogin"];
+                            customers.CustomersPassword = (String)dr["CustomersPassword"];
+                            customers.CustomersCreated_At = (String)dr["CustomersCreated_At"];
+                            customers.CustomersFk_Id_Cities = (int)dr["CustomersFk_Id_Cities"];
 
                             results.Add(customers);
                         }
@@ -61,9 +61,9 @@ namespace DAL
             return results;
         }
 
-        public Deliverer GetCustomers(int id)
+        public Customers GetCustomers(int id)
         {
-            Deliverer customers = null;
+            Customers customers = null;
             string connectionString = Configuration.GetConnectionString("DefaultConnection");
 
             try
@@ -80,34 +80,34 @@ namespace DAL
                     {
                         if (dr.Read())
                         {
-                            customers = new Deliverer();
+                            customers = new Customers();
 
                             if (dr["IdHotel"] != null)
                                 customers.IdCustomers = (int)dr["IdCustomers"];
 
                             if (dr["Name"] != null)
-                                customers.FirstName = (string)dr["Name"];
+                                customers.CustomerstName = (string)dr["CustomersName"];
 
                             if (dr["LastName"] != null)
-                                customers.LastName = (string)dr["LastName"];
+                                customers.CustomersLastName = (string)dr["LastName"];
 
                             if (dr["Phone_Number"] != null)
-                                customers.Phone_Number = (string)dr["Phone_Number"];
+                                customers.CustomersPhone = (string)dr["Phone_Number"];
 
                             if (dr["Address"] != null)
-                                customers.Address = (string)dr["Address"];
+                                customers.CustomersAddress = (string)dr["Address"];
 
                             if (dr["Login"] != null)
-                                customers.Login = (string)dr["Login"];
+                                customers.CustomersLogin = (string)dr["Login"];
 
                             if (dr["Password"] != null)
-                                customers.Password = (string)dr["Password"];
+                                customers.CustomersPassword = (string)dr["Password"];
 
                             if (dr["Created_At"] != null)
-                                customers.Created_At = (string)dr["Created_At"];
+                                customers.CustomersCreated_At = (string)dr["Created_At"];
 
                             if (dr["Fk_Id_Cities"] != null)
-                                customers.Fk_Id_Cities = (int)dr["Fk_Id_Cities"];
+                                customers.CustomersFk_Id_Cities = (int)dr["Fk_Id_Cities"];
 
                         }
                     }
@@ -121,7 +121,7 @@ namespace DAL
             return customers;
         }
 
-        public Deliverer AddCustomers(Deliverer customers)
+        public Customers AddCustomers(Customers customers)
         {
 
 
@@ -131,16 +131,16 @@ namespace DAL
             {
                 using (SqlConnection cn = new SqlConnection(connectionString))
                 {
-                    string query = "Insert into Customers(FirstName, LastName, Phone_Number, Address, Login, Password, Created_At, Fk_Id_Cities) values(@FirstName, @LastName, @Phone_Number, @Address, @Login, @Password, @Created_At, @Fk_Id_Cities); SELECT SCOPE_IDENTITY()";
+                    string query = "Insert into Customers(CustomersName, CustomersLastName, CustomersPhone, CustomersAddress, CustomersLogin, CustomersPassword, CustomersCreated_At, CustomersFk_Id_Cities) values(@CustomersName, @CustomersLastName, @CustomersPhone, @CustomersAddress, @CustomersLogin, @CustomersPassword, @CustomersCreated_At, @CustomersFk_Id_Cities); SELECT SCOPE_IDENTITY()";
                     SqlCommand cmd = new SqlCommand(query, cn);
-                    cmd.Parameters.AddWithValue("@FirstName", customers.FirstName);
-                    cmd.Parameters.AddWithValue("@LastName", customers.LastName);
-                    cmd.Parameters.AddWithValue("@Phone_Number", customers.Phone_Number);
-                    cmd.Parameters.AddWithValue("@Address", customers.Address);
-                    cmd.Parameters.AddWithValue("@Login", customers.Login);
-                    cmd.Parameters.AddWithValue("@Password", customers.Password);
-                    cmd.Parameters.AddWithValue("@Created_At", customers.Created_At);
-                    cmd.Parameters.AddWithValue("@Fk_Id_Cities", customers.Fk_Id_Cities);
+                    cmd.Parameters.AddWithValue("@CustomersName", customers.CustomerstName);
+                    cmd.Parameters.AddWithValue("@CustomersLastName", customers.CustomersLastName);
+                    cmd.Parameters.AddWithValue("@CustomersPhone", customers.CustomersPhone);
+                    cmd.Parameters.AddWithValue("@CustomersAddress", customers.CustomersAddress);
+                    cmd.Parameters.AddWithValue("@CustomersLogin", customers.CustomersLogin);
+                    cmd.Parameters.AddWithValue("@CustomersPassword", customers.CustomersPassword);
+                    cmd.Parameters.AddWithValue("@CustomersCreated_At", customers.CustomersCreated_At);
+                    cmd.Parameters.AddWithValue("@CustomersFk_Id_Cities", customers.CustomersFk_Id_Cities);
 
                     cn.Open();
 
@@ -156,7 +156,7 @@ namespace DAL
             return customers;
         }
 
-        public Deliverer UpdateCustomers(Deliverer customers)
+        public Customers UpdateCustomers(Customers customers)
         {
             int result = 0;
 
@@ -166,18 +166,19 @@ namespace DAL
             {
                 using (SqlConnection cn = new SqlConnection(connectionString))
                 {
-                    string query = "UPDATE Customers SET FirstName = @FirstName, LastName = @LastName, Phone_Number = @Phone_Number, Address = @Address, Login = @Login, Password = @Password, Created_At = @Created_At, Fk_Id_Cities = @Fk_Id_Cities WHERE IdCustomers = @id";
+                    string query = "UPDATE Customers SET CustomersName = @CustomersName, CustomersLastName = @CustomersLastName, CustomersPhone = @CustomersPhone, CustomersAddress = @CustomersAddress, CustomersLogin = @CustomersLogin, CustomersPassword = @CustomersPassword, CustomersCreated_At = @CustomersCreated_At, CustomersFk_Id_Cities = @CustomersFk_Id_Cities WHERE IdCustomers = @id";
                     SqlCommand cmd = new SqlCommand(query, cn);
-                    cmd.Parameters.AddWithValue("@FirstName", customers.FirstName);
-                    cmd.Parameters.AddWithValue("@LastName", customers.LastName);
-                    cmd.Parameters.AddWithValue("@Phone_Number", customers.Phone_Number);
-                    cmd.Parameters.AddWithValue("@Address", customers.Address);
-                    cmd.Parameters.AddWithValue("@Login", customers.Login);
-                    cmd.Parameters.AddWithValue("@Password", customers.Password);
-                    cmd.Parameters.AddWithValue("@Created_At", customers.Created_At);
-                    cmd.Parameters.AddWithValue("@Fk_Id_Cities", customers.Fk_Id_Cities);
+                    cmd.Parameters.AddWithValue("@CustomersName", customers.CustomerstName);
+                    cmd.Parameters.AddWithValue("@CustomersLastName", customers.CustomersLastName);
+                    cmd.Parameters.AddWithValue("@CustomersPhone", customers.CustomersPhone);
+                    cmd.Parameters.AddWithValue("@CustomersAddress", customers.CustomersAddress);
+                    cmd.Parameters.AddWithValue("@CustomersLogin", customers.CustomersLogin);
+                    cmd.Parameters.AddWithValue("@CustomersPassword", customers.CustomersPassword);
+                    cmd.Parameters.AddWithValue("@CustomersCreated_At", customers.CustomersCreated_At);
+                    cmd.Parameters.AddWithValue("@CustomersFk_Id_Cities", customers.CustomersFk_Id_Cities);
 
                     cn.Open();
+                    
 
                     result = cmd.ExecuteNonQuery();
 

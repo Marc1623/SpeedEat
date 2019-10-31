@@ -46,7 +46,7 @@ namespace DAL
                             deliverer.Address = (String)dr["Address"];
                             deliverer.Login = (String)dr["Login"];
                             deliverer.Password = (String)dr["Password"];
-                            deliverer.Created_At = (String)dr["Created_At"];
+                            deliverer.DelivererCreated_At = (String)dr["Created_At"];
                             deliverer.Fk_Id_Cities = (int)dr["Fk_Id_Cities"];
 
                             results.Add(deliverer);
@@ -104,7 +104,7 @@ namespace DAL
                                 deliverer.Password = (string)dr["Password"];
 
                             if (dr["Created_At"] != null)
-                                deliverer.Created_At = (string)dr["Created_At"];
+                                deliverer.DelivererCreated_At = (string)dr["Created_At"];
 
                             if (dr["Fk_Id_Cities"] != null)
                                 deliverer.Fk_Id_Cities = (int)dr["Fk_Id_Cities"];
@@ -139,7 +139,7 @@ namespace DAL
                     cmd.Parameters.AddWithValue("@Address", deliverer.Address);
                     cmd.Parameters.AddWithValue("@Login", deliverer.Login);
                     cmd.Parameters.AddWithValue("@Password", deliverer.Password);
-                    cmd.Parameters.AddWithValue("@Created_At", deliverer.Created_At);
+                    cmd.Parameters.AddWithValue("@Created_At", deliverer.DelivererCreated_At);
                     cmd.Parameters.AddWithValue("@Fk_Id_Cities", deliverer.Fk_Id_Cities);
 
                     cn.Open();
@@ -166,7 +166,7 @@ namespace DAL
             {
                 using (SqlConnection cn = new SqlConnection(connectionString))
                 {
-                    string query = "UPDATE Deliverer SET FirstName = @FirstName, LastName = @LastName, Phone_Number = @Phone_Number, Address = @Address, Login = @Login, Password = @Password, Created_At = @Created_At, Fk_Id_Cities = @Fk_Id_Cities WHERE IdCustomers = @id";
+                    string query = "UPDATE Deliverer SET FirstName = @FirstName, LastName = @LastName, Phone_Number = @Phone_Number, Address = @Address, Login = @Login, Password = @Password, Created_At = @Created_At, Fk_Id_Cities = @Fk_Id_Cities WHERE IdDeliverer = @id";
                     SqlCommand cmd = new SqlCommand(query, cn);
                     cmd.Parameters.AddWithValue("@FirstName", deliverer.FirstName);
                     cmd.Parameters.AddWithValue("@LastName", deliverer.LastName);
@@ -174,7 +174,7 @@ namespace DAL
                     cmd.Parameters.AddWithValue("@Address", deliverer.Address);
                     cmd.Parameters.AddWithValue("@Login", deliverer.Login);
                     cmd.Parameters.AddWithValue("@Password", deliverer.Password);
-                    cmd.Parameters.AddWithValue("@Created_At", deliverer.Created_At);
+                    cmd.Parameters.AddWithValue("@Created_At", deliverer.DelivererCreated_At);
                     cmd.Parameters.AddWithValue("@Fk_Id_Cities", deliverer.Fk_Id_Cities);
 
                     cn.Open();
