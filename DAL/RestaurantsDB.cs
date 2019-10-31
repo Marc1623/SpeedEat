@@ -145,7 +145,7 @@ namespace DAL
             return restaurants;
         }
 
-        public Restaurants UpdateHotel(Restaurants restaurants)
+        public Restaurants UpdateRestaurants(Restaurants restaurants)
         {
 
             int result = 0;
