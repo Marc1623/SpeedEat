@@ -14,7 +14,7 @@ namespace ConsoleApp_SpeedEat
 
         static void Main(string[] args)
         {
-            Console.WriteLine("nike ta mere!");
+            Console.WriteLine("test!");
         }
     } // DROP TABLE Customers2
 }
