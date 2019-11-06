@@ -82,11 +82,11 @@ namespace DAL
                         {
                             deliverer = new Deliverer();
 
-                            if (dr["IdHotel"] != null)
+                            if (dr["IdDeliverer"] != null)
                                 deliverer.IdDeliverer = (int)dr["IdDeliverer"];
 
-                            if (dr["Name"] != null)
-                                deliverer.FirstName = (string)dr["Name"];
+                            if (dr["FirstName"] != null)
+                                deliverer.FirstName = (string)dr["FirstName"];
 
                             if (dr["LastName"] != null)
                                 deliverer.LastName = (string)dr["LastName"];
@@ -103,8 +103,8 @@ namespace DAL
                             if (dr["Password"] != null)
                                 deliverer.Password = (string)dr["Password"];
 
-                            if (dr["Created_At"] != null)
-                                deliverer.DelivererCreated_At = (string)dr["Created_At"];
+                            if (dr["DelivererCreated_At"] != null)
+                                deliverer.DelivererCreated_At = (string)dr["DelivererCreated_At"];
 
                             if (dr["Fk_Id_Cities"] != null)
                                 deliverer.Fk_Id_Cities = (int)dr["Fk_Id_Cities"];

@@ -80,25 +80,25 @@ namespace DAL
                         {
                             dishes = new Dishes();
 
-                            if (dr["IdHotel"] != null)
-                                dishes.IdDishes = (int)dr["IdHotel"];
+                            if (dr["IdDishes"] != null)
+                                dishes.IdDishes = (int)dr["IdDishes"];
 
-                            if (dr["Name"] != null)
+                            if (dr["DishesName"] != null)
                                 dishes.DishesName = (string)dr["DishesName"];
 
-                            if (dr["Description"] != null)
+                            if (dr["DishesDescription"] != null)
                                 dishes.DishesDescription = (string)dr["DishesDescription"];
 
-                            if (dr["Location"] != null)
+                            if (dr["DishesPrice"] != null)
                                 dishes.DishesPrice = (float)dr["DishesPrice"];
 
-                            if (dr["Category"] != null)
+                            if (dr["DishesStatus"] != null)
                                 dishes.DishesStatus = (int)dr["DishesStatus"];
 
-                            if (dr["HasWifi"] != null)
+                            if (dr["DishesCreated_At"] != null)
                                 dishes.DishesCreated_At = (String)dr["DishesCreated_At"];
 
-                            if (dr["HasParking"] != null)
+                            if (dr["DishesFk_Id_Restaurants"] != null)
                                 dishes.DishesFk_Id_Restaurants = (int)dr["DishesFk_Id_Restaurants"];
 
                         }
