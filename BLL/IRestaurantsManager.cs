@@ -1,22 +1,26 @@
-﻿using DTO;
-using Microsoft.Extensions.Configuration;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using DAL;
+using DTO;
 
 
-namespace DAL
+namespace BLL
 {
-    public interface IRestaurantsDB
+    public interface IRestaurantsManager
     {
 
-        IConfiguration Configuration { get; }
+        IRestaurantsDB RestaurantsDB { get; }
+
         List<Restaurants> GetAllRestaurants();
+
         Restaurants GetRestaurants(int id);
+
         Restaurants AddRestaurants(Restaurants restaurants);
+
         Restaurants UpdateRestaurants(Restaurants restaurants);
+
         int DeleteRestaurants(int id);
-
     }
-}
 
+}
