@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DTO
 {
-    public class Deliverey
+    public class Delivery
     {
         public int IdDelivery { get; set; }
 

@@ -18,7 +18,7 @@ namespace ConsoleApp_SpeedEat
             var delivererManager = new DelivererManager(Configuration);
             var customersManager = new CustomersManager(Configuration);
 
-            int id;
+            
             int reponse;
             var dishesManager = new DishesManager(Configuration);
 
@@ -47,7 +47,7 @@ namespace ConsoleApp_SpeedEat
                 Console.WriteLine("Password : ");
                 string PasswordNewCustomer = Console.ReadLine();
                
-                customersManager.AddCustomers(new Customers { CustomersLastName = LastNameNewCustomer, CustomerstName = FirsttNameNewCustomer, CustomersPhone = PhoneNewCustomer, CustomersAddress = AddressNewCustomer, CustomersLogin = UsernameNewCustomer, CustomersPassword = PasswordNewCustomer, CustomersCreated_At = "", CustomersFk_Id_Cities = });
+                customersManager.AddCustomers(new Customers { CustomersLastName = LastNameNewCustomer, CustomerstName = FirsttNameNewCustomer, CustomersPhone = PhoneNewCustomer, CustomersAddress = AddressNewCustomer, CustomersLogin = UsernameNewCustomer, CustomersPassword = PasswordNewCustomer, CustomersCreated_At = ""});
                 Console.WriteLine("Bienvenue sur SPEEDEAT !");
             }
             var deliverer2 = delivererManager.GetDeliverer(1);

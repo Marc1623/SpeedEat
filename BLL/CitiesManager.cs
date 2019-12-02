@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using DAL;
 using Microsoft.Extensions.Configuration;
-using System.Collections.Generic;
+
 using DTO;
 
 namespace BLL

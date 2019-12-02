@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using DAL;
 using Microsoft.Extensions.Configuration;
+using DAL;
 using DTO;
-
 
 namespace BLL
 {
-    public class Orders_DishesManager
+    public class Orders_DishesManager 
     {
 
         public IOrders_DishesDB Orders_DishesDB { get; }
@@ -18,22 +16,22 @@ namespace BLL
             Orders_DishesDB = new Orders_DishesDB(configuration);
         }
 
-        public List<Orders_DishesDB> GetAllOrders_Dishes()
+        public List<Orders_Dishes> GetAllOrders_Dishes()
         {
             return Orders_DishesDB.GetAllOrders_Dishes();
         }
 
-        public Orders_DishesDB GetOrders_Dishes(int id)
+        public Orders_Dishes GetOrders_Dishes(int id)
         {
             return Orders_DishesDB.GetOrders_Dishes(id);
         }
 
-        public Orders_DishesDB AddOrders_Dishes(Orders_DishesDB orders_Dishes)
+        public Orders_Dishes AddOrders_Dishes(Orders_Dishes orders_Dishes)
         {
             return Orders_DishesDB.AddOrders_Dishes(orders_Dishes);
         }
 
-        public Orders_DishesDB UpdateOrders_Dishes(Orders_DishesDB orders_Dishes)
+        public Orders_Dishes UpdateOrders_Dishes(Orders_Dishes orders_Dishes)
         {
             return Orders_DishesDB.UpdateOrders_Dishes(orders_Dishes);
         }

@@ -10,10 +10,10 @@ namespace DAL
     public interface IDeliveryDB
     {
         IConfiguration Configuration { get; }
-        List<Deliverey> GetAllDelivery();
-        Deliverey GetDelivery(int id);
-        Deliverey AddDelivery(Deliverey delivery);
-        Deliverey UpdateDelivery(Deliverey delivery);
+        List<Delivery> GetAllDelivery();
+        Delivery GetDelivery(int id);
+        Delivery AddDelivery(Delivery delivery);
+        Delivery UpdateDelivery(Delivery delivery);
         int DeleteDelivery(int id);
     }
 

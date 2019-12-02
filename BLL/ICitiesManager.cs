@@ -9,7 +9,7 @@ namespace BLL
     public interface ICitiesManager
     {
 
-        ICitiesDB HotelsDb { get; }
+        ICitiesDB CitiesDB { get; }
 
         List<Cities> GetAllCities();
 

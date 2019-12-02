@@ -7,7 +7,7 @@ using System.Text;
 
 namespace DAL
 {
-    public class RestaurantsDB 
+    public class RestaurantsDB : IRestaurantsDB
     {
         public IConfiguration Configuration { get; }
         public RestaurantsDB(IConfiguration configuration)
@@ -44,7 +44,7 @@ namespace DAL
                             restaurants.Phone = (String)dr["Phone"];
                             restaurants.Created_At = (String)dr["Created_At"];
                             restaurants.Fk_Id_Cities = (int)dr["Fk_Id_Cities"];
-                            
+
 
 
                             results.Add(restaurants);
@@ -78,7 +78,7 @@ namespace DAL
                     {
                         if (dr.Read())
                         {
-                             restaurants = new Restaurants();
+                            restaurants = new Restaurants();
 
                             if (dr["IdRestaurant"] != null)
                                 restaurants.IdRestaurant = (int)dr["IdRestaurant"];
@@ -98,7 +98,7 @@ namespace DAL
                             if (dr["Fk_Id_Cities"] != null)
                                 restaurants.Fk_Id_Cities = (int)dr["Fk_Id_Cities"];
 
-                            
+
                         }
                     }
                 }
@@ -123,13 +123,13 @@ namespace DAL
                 {
                     string query = "Insert into Restaurants( Restaurant_Name, Adress, Phone, Created_At, Fk_Id_Cities) values(@IdRestaurant, @Restaurant_Name, @Adress, @Phone, @Created_At, @Fk_Id_Cities); SELECT SCOPE_IDENTITY()";
                     SqlCommand cmd = new SqlCommand(query, cn);
-                
+
                     cmd.Parameters.AddWithValue("@Restaurant_Name", restaurants.Restaurant_Name);
                     cmd.Parameters.AddWithValue("@Adress", restaurants.Adress);
                     cmd.Parameters.AddWithValue("@Phone", restaurants.Phone);
                     cmd.Parameters.AddWithValue("@Created_At", restaurants.Created_At);
                     cmd.Parameters.AddWithValue("@Fk_Id_Cities", restaurants.Fk_Id_Cities);
-                    
+
 
                     cn.Open();
 
@@ -163,7 +163,7 @@ namespace DAL
                     cmd.Parameters.AddWithValue("@Phone", restaurants.Phone);
                     cmd.Parameters.AddWithValue("@Created_At", restaurants.Created_At);
                     cmd.Parameters.AddWithValue("@Fk_Id_Cities", restaurants.Fk_Id_Cities);
-                   
+
 
                     cn.Open();
 

@@ -9,7 +9,7 @@ namespace BLL
     public interface IOrdersManager
     {
 
-        IOrdersDB Orders { get; }
+        IOrdersDB OrdersDB { get; }
 
         List<Orders> GetAllOrders();
 

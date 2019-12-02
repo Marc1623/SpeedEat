@@ -16,9 +16,9 @@ namespace DAL
             Configuration = configuration;
         }
 
-        public List<Deliverey> GetAllDelivery()
+        public List<Delivery> GetAllDelivery()
         {
-            List<Deliverey> results = null;
+            List<Delivery> results = null;
             string ConnectionStrings = Configuration.GetConnectionString("DefaultConnection");
 
             try
@@ -35,9 +35,9 @@ namespace DAL
                         while (dr.Read())
                         {
                             if (results == null)
-                                results = new List<Deliverey>();
+                                results = new List<Delivery>();
 
-                            Deliverey deliverey = new Deliverey();
+                            Delivery deliverey = new Delivery();
 
                             deliverey.IdDelivery = (int)dr["IdCustomers"];
                             deliverey.Start_Time = (String)dr["Start_Time"];
@@ -57,9 +57,9 @@ namespace DAL
             return results;
         }
 
-        public Deliverey GetDelivery(int id)
+        public Delivery GetDelivery(int id)
         {
-            Deliverey deliverey = null;
+            Delivery deliverey = null;
             string connectionString = Configuration.GetConnectionString("DefaultConnection");
 
             try
@@ -76,7 +76,7 @@ namespace DAL
                     {
                         if (dr.Read())
                         {
-                            deliverey = new Deliverey();
+                            deliverey = new Delivery();
 
                             if (dr["IdDelivery"] != null)
                                 deliverey.IdDelivery = (int)dr["IdDelivery"];
@@ -105,7 +105,7 @@ namespace DAL
             return deliverey;
         }
 
-        public Deliverey AddDelivery(Deliverey delivery)
+        public Delivery AddDelivery(Delivery delivery)
         {
 
 
@@ -137,7 +137,7 @@ namespace DAL
             return delivery;
         }
 
-        public Deliverey UpdateDelivery(Deliverey delivery)
+        public Delivery UpdateDelivery(Delivery delivery)
         {
             int result = 0;
 

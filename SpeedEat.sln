@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp_SpeedEat", "Cons
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAL", "DAL\DAL.csproj", "{8B43ED52-C1DB-4CB1-B73E-EE7555FBBCC5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTO", "DTO\DTO.csproj", "{CC1FFAC8-50F7-4D68-A8B6-E8B4CC0D4563}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DTO", "DTO\DTO.csproj", "{CC1FFAC8-50F7-4D68-A8B6-E8B4CC0D4563}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{6A76F8FE-3A20-456F-B4E1-A09EA88F4F59}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BLL", "BLL\BLL.csproj", "{6A76F8FE-3A20-456F-B4E1-A09EA88F4F59}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSpeedEatApp", "WebSpeedEatApp\WebSpeedEatApp.csproj", "{1633CFFE-F70F-4F7E-B147-DE44EB34C305}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{6A76F8FE-3A20-456F-B4E1-A09EA88F4F59}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A76F8FE-3A20-456F-B4E1-A09EA88F4F59}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A76F8FE-3A20-456F-B4E1-A09EA88F4F59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1633CFFE-F70F-4F7E-B147-DE44EB34C305}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1633CFFE-F70F-4F7E-B147-DE44EB34C305}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1633CFFE-F70F-4F7E-B147-DE44EB34C305}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1633CFFE-F70F-4F7E-B147-DE44EB34C305}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
