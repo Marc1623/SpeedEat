@@ -41,5 +41,18 @@ namespace BLL
         {
             return CustomersDB.DeleteCustomers(id);
         }
+
+        public ICustomersDB LoginDbObject { get; }
+
+
+        public CustomersManager(ICustomersDB customersDB)
+        {
+            LoginDbObject = customersDB;
+        }
+
+        public bool IsUserValid(Customers l)
+        {
+            return LoginDbObject.IsUserValid(l);
+        }
     }
 }

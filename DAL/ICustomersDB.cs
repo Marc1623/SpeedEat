@@ -14,6 +14,7 @@ namespace DAL
         Customers GetCustomers(int id);
         Customers AddCustomers(Customers customers);
         Customers UpdateCustomers(Customers customers);
+        bool IsUserValid(Customers l);
         int DeleteCustomers(int id);
     }
 

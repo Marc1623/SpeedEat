@@ -220,6 +220,13 @@ namespace DAL
 
             return result;
         }
+
+        public bool IsUserValid(Customers l)
+        {
+
+            // add sql statement to get user data from DB
+            return true;
+        }
     }
 
 }

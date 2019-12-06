@@ -20,6 +20,8 @@ namespace BLL
         Customers UpdateCustomers(Customers customers);
 
         int DeleteCustomers(int id);
+
+        bool IsUserValid(Customers l);
     }
 
 }
