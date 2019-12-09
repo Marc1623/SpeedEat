@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using BLL;
+using DAL;
 
 namespace WebSpeedEatApp
 {
@@ -31,6 +33,9 @@ namespace WebSpeedEatApp
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddSession();
+            services.AddScoped<ILoginManager, LoginManager>();
+            services.AddScoped<ILoginDB, LoginDB>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

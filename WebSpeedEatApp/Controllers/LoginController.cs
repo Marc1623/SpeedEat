@@ -9,12 +9,12 @@ using BLL;
 
 namespace WebSpeedEatApp.Controllers
 {
-   public class LoginController : Controller
+    public class LoginController : Controller
     {
-        private ICustomersManager CustomersManager { get; }
-        public LoginController(ICustomersManager customersManager)
+        private ILoginManager LoginManager { get; }
+        public LoginController(ILoginManager loginManager)
         {
-            CustomersManager = customersManager;
+            LoginManager = loginManager;
         }
 
         [HttpGet]
@@ -24,13 +24,13 @@ namespace WebSpeedEatApp.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(Customers l)
+        public IActionResult Index(Login l)
         {
-            bool isValid = CustomersManager.IsUserValid(l);
+            bool isValid = LoginManager.IsUserValid(l);
             if (isValid)
             {
-                HttpContext.Session.SetString("Username", l.CustomersLogin);
-                return RedirectToAction("GetCities", "Cities", new { isValid = isValid, user = "Antoine" });
+                HttpContext.Session.SetString("Username", l.Username);
+                return RedirectToAction("GetCities", "City", new { isValid = isValid, user = "Antoine" });
             }
             else
             {
