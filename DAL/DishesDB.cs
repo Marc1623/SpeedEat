@@ -20,7 +20,7 @@ namespace DAL
         {
             List<Dishes> results = null;
             string ConnectionStrings = Configuration.GetConnectionString("DefaultConnection");
-
+            //test
             try
             {
                 using (SqlConnection cn = new SqlConnection(ConnectionStrings))
