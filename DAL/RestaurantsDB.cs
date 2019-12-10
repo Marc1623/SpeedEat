@@ -15,7 +15,7 @@ namespace DAL
             Configuration = configuration;
         }
 
-        public List<Restaurants> GetAllRestaurants()
+        public List<Restaurants> GetAllRestaurants(int id)
         {
             List<Restaurants> results = null;
             string ConnectionStrings = Configuration.GetConnectionString("DefaultConnection");
@@ -24,8 +24,9 @@ namespace DAL
             {
                 using (SqlConnection cn = new SqlConnection(ConnectionStrings))
                 {
-                    string query = "SELECT * from Restaurants";
+                    string query = "SELECT * FROM Restaurants WHERE Fk_Id_Cities = @id";
                     SqlCommand cmd = new SqlCommand(query, cn);
+                    cmd.Parameters.AddWithValue("@id", id);
 
                     cn.Open();
 
@@ -39,13 +40,11 @@ namespace DAL
                             Restaurants restaurants = new Restaurants();
 
                             restaurants.IdRestaurant = (int)dr["IdRestaurant"];
-                            restaurants.Restaurant_Name = (String)dr["Restaurant_Name"];
-                            restaurants.Adress = (String)dr["Adress"];
-                            restaurants.Phone = (String)dr["Phone"];
-                            restaurants.Created_At = (String)dr["Created_At"];
+                            restaurants.Restaurant_Name = (string)dr["Restaurant_Name"];
+                            restaurants.Adress = (string)dr["Adress"];
+                            restaurants.Phone = (string)dr["Phone"];
+                            restaurants.Created_At = (string)dr["Created_At"];
                             restaurants.Fk_Id_Cities = (int)dr["Fk_Id_Cities"];
-
-
 
                             results.Add(restaurants);
                         }

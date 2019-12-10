@@ -8,7 +8,7 @@ using DTO;
 
 namespace BLL
 {
-    public class RestaurantsManager
+    public class RestaurantsManager : IRestaurantsManager
     {
 
         public IRestaurantsDB RestaurantsDB { get; }
@@ -18,12 +18,12 @@ namespace BLL
             RestaurantsDB = new RestaurantsDB(configuration);
         }
 
-        public List<Restaurants> GetAllRestaurants()
+        public List<Restaurants> GetAllRestaurants(int id)
         {
-            return RestaurantsDB.GetAllRestaurants();
+            return RestaurantsDB.GetAllRestaurants(id);
         }
 
-        public Restaurants GetResturants(int id)
+        public Restaurants GetRestaurants(int id)
         {
             return RestaurantsDB.GetRestaurants(id);
         }

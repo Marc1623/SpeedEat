@@ -8,7 +8,7 @@ using DTO;
 
 namespace BLL
 {
-    public class DishesManager
+    public class DishesManager : IDishesManager
     {
 
         public IDishesDB DishesDB { get; }
@@ -18,9 +18,9 @@ namespace BLL
             DishesDB = new DishesDB(configuration);
         }
 
-        public List<Dishes> GetAllDishes()
+        public List<Dishes> GetAllDishes(int id)
         {
-            return DishesDB.GetAllDishes();
+            return DishesDB.GetAllDishes(id);
         }
 
         public Dishes GetDishes(int id)

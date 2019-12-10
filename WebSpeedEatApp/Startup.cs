@@ -36,6 +36,12 @@ namespace WebSpeedEatApp
             services.AddSession();
             services.AddScoped<ILoginManager, LoginManager>();
             services.AddScoped<ILoginDB, LoginDB>();
+            services.AddScoped<ICitiesManager, CitiesManager>();
+            services.AddScoped<ICitiesDB, CitiesDB>();
+            services.AddScoped<IRestaurantsManager, RestaurantsManager>();
+            services.AddScoped<IRestaurantsDB, RestaurantsDB>();
+            services.AddScoped<IDishesManager, DishesManager>();
+            services.AddScoped<IDishesDB, DishesDB>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
@@ -56,12 +62,13 @@ namespace WebSpeedEatApp
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+            app.UseSession();
 
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Login}/{action=Index}/{id?}");
             });
         }
     }

@@ -12,11 +12,11 @@ namespace DTO
 
         public string DishesDescription { get; set; }
 
-        public float DishesPrice { get; set; }
+        public double DishesPrice { get; set; }
 
         public int DishesStatus { get; set; }
 
-        public string DishesCreated_At { get; set; }
+        public DateTime DishesCreated_At { get; set; }
 
         public int DishesFk_Id_Restaurants { get; set; }
 

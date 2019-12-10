@@ -8,7 +8,7 @@ using DTO;
 
 namespace BLL
 {
-    public class CitiesManager
+    public class CitiesManager : ICitiesManager
     {
 
         public ICitiesDB CitiesDB { get; }

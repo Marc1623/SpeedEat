@@ -16,7 +16,7 @@ namespace DAL
             Configuration = configuration;
         }
 
-        public List<Dishes> GetAllDishes()
+        public List<Dishes> GetAllDishes(int id)
         {
             List<Dishes> results = null;
             string ConnectionStrings = Configuration.GetConnectionString("DefaultConnection");
@@ -25,8 +25,11 @@ namespace DAL
             {
                 using (SqlConnection cn = new SqlConnection(ConnectionStrings))
                 {
-                    string query = "SELECT * from Dishes";
+                    string query = "SELECT * from Dishes WHERE DishesFk_Id_Restaurants=IdDishes";
                     SqlCommand cmd = new SqlCommand(query, cn);
+
+                    cmd.Parameters.AddWithValue("@id", id);
+
 
                     cn.Open();
 
@@ -42,9 +45,9 @@ namespace DAL
                             dishes.IdDishes = (int)dr["IdDishes"];
                             dishes.DishesName = (String)dr["DishesName"];
                             dishes.DishesDescription = (String)dr["DishesDescription"];
-                            dishes.DishesPrice = (float)dr["DishesPrice"];
+                            dishes.DishesPrice = (double)dr["DishesPrice"];
                             dishes.DishesStatus = (int)dr["DishesStatus"];
-                            dishes.DishesCreated_At = (String)dr["DishesCreated_At"];
+                            dishes.DishesCreated_At = (DateTime)dr["DishesCreated_At"];
                             dishes.DishesFk_Id_Restaurants = (int)dr["DishesFk_Id_Restaurants"];
 
                             results.Add(dishes);
@@ -90,13 +93,13 @@ namespace DAL
                                 dishes.DishesDescription = (string)dr["DishesDescription"];
 
                             if (dr["DishesPrice"] != null)
-                                dishes.DishesPrice = (float)dr["DishesPrice"];
+                                dishes.DishesPrice = (double)dr["DishesPrice"];
 
                             if (dr["DishesStatus"] != null)
                                 dishes.DishesStatus = (int)dr["DishesStatus"];
 
                             if (dr["DishesCreated_At"] != null)
-                                dishes.DishesCreated_At = (String)dr["DishesCreated_At"];
+                                dishes.DishesCreated_At = (DateTime)dr["DishesCreated_At"];
 
                             if (dr["DishesFk_Id_Restaurants"] != null)
                                 dishes.DishesFk_Id_Restaurants = (int)dr["DishesFk_Id_Restaurants"];

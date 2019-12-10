@@ -10,7 +10,7 @@ namespace DAL
     public interface IDishesDB
     {
         IConfiguration Configuration { get; }
-        List<Dishes> GetAllDishes();
+        List<Dishes> GetAllDishes(int id);
         Dishes GetDishes(int id);
         Dishes AddDishes(Dishes dishes);
         Dishes UpdateDishes(Dishes dishes);

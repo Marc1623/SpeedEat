@@ -30,7 +30,7 @@ namespace WebSpeedEatApp.Controllers
             if (isValid)
             {
                 HttpContext.Session.SetString("Username", l.Username);
-                return RedirectToAction("GetCities", "City", new { isValid = isValid, user = "Antoine" });
+                return RedirectToAction("GetAllCities", "City");
             }
             else
             {
