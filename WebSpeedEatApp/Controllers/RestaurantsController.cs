@@ -5,15 +5,19 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using BLL;
+using Microsoft.Extensions.Configuration;
 
 namespace WebSpeedEatApp.Controllers
 {
     public class RestaurantsController : Controller
-    {private IRestaurantsManager RestaurantsManager { get; }
-        public RestaurantsController (IRestaurantsManager restaurantsManager)
+    {
+
+        private IConfiguration Configuration { get; }
+        public RestaurantsController(IConfiguration configuration)
         {
-            RestaurantsManager = restaurantsManager;
+            Configuration = configuration;
         }
+
         // GET: Restaurants
         public ActionResult Index()
         {
@@ -28,8 +32,9 @@ namespace WebSpeedEatApp.Controllers
 
         public ActionResult GetAllRestaurants(int id)
         {
-            var restaurants = RestaurantsManager.GetAllRestaurants(id);
-            return View(restaurants);
+            RestaurantsManager restaurantsManager = new RestaurantsManager(Configuration);
+            return View(restaurantsManager.GetAllRestaurants(id));
+            
         }
 
         // GET: Restaurants/Create
@@ -101,10 +106,5 @@ namespace WebSpeedEatApp.Controllers
             }
         }
 
-        public ActionResult Dishes(int id)
-        {
-
-            return RedirectToAction("GetAllDishes", "Dishes");
-        }
     }
 }
