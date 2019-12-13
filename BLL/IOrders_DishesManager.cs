@@ -14,6 +14,7 @@ namespace BLL
         List<Orders_Dishes> GetAllOrders_Dishes();
 
         Orders_Dishes GetOrders_Dishes(int id);
+        Orders_Dishes GetOrders_DishesQuantity(int id);
 
         Orders_Dishes AddOrders_Dishes(Orders_Dishes orders_Dishes);
 

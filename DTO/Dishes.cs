@@ -14,7 +14,7 @@ namespace DTO
 
         public double DishesPrice { get; set; }
 
-        public int DishesStatus { get; set; }
+        public string DishesStatus { get; set; }
 
         public DateTime DishesCreated_At { get; set; }
 

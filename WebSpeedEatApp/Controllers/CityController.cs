@@ -41,15 +41,17 @@ namespace WebSpeedEatApp.Controllers
         
         public ActionResult Select(int id)
         {
-            RestaurantsManager restaurantsManager = new RestaurantsManager(Configuration);
+            RestaurantsManager restaurantsManager = new RestaurantsManager(Configuration); 
             return View(restaurantsManager.GetAllRestaurants(id));
         }
 
         public ActionResult Choose(int id)
+
         {
             DishesManager dishesManager = new DishesManager(Configuration);
             return View(dishesManager.GetAllDishes(id));
         }
 
+       
     }
 }

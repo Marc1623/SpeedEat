@@ -4,7 +4,7 @@
     ViewData["Title"] = "GetAllDishes";
 }
 
-<h2>GetAllDishes</h2>
+<h2>Sélectionner votre repas</h2>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -37,9 +37,9 @@
                 @Html.DisplayFor(modelItem => item.DishesPrice)
             </td>
             <td>
-                @Html.ActionLink("Choose", "Choose", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("buy", "buy", new { /* id=item.PrimaryKey */ })
             </td>
         </tr>
 }
-    </tbody>
+    </tbody>  
 </table>

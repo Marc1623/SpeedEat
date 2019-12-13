@@ -1,0 +1,41 @@
+﻿@model IEnumerable<WebSpeedEatApp.Models.Item>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>buy</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Dishe.DishesName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dishe.DishesName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                
+            </tr>
+        }
+
+        <tr>
+            <td>
+                @ViewBag.total
+            </td>
+        </tr>
+    </tbody>
+</table>

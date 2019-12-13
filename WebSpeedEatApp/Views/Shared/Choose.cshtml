@@ -4,7 +4,7 @@
     ViewData["Title"] = "ShowDishes";
 }
 
-<h2>ShowDishes</h2>
+<h2>Choissisez les plats que vous désirez</h2>
 
 
 <table class="table">
@@ -53,16 +53,15 @@
                 @Html.DisplayFor(modelItem => item.DishesStatus)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DishesCreated_At)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.DishesFk_Id_Restaurants)
             </td>
+            
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("buy", "buy","cart", new { id = item.IdDishes }) |
                 @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
             </td>
+
         </tr>
 }
     </tbody>
