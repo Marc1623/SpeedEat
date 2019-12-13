@@ -13,6 +13,8 @@ namespace BLL
 
         List<Deliverer> GetAllDeliverers();
 
+        int GetIdDeliverer(string login);
+        string GetPassDeliverer(int id, string login);
         Deliverer GetDeliverer(int id);
 
         Deliverer AddDeliverer(Deliverer deliverer);

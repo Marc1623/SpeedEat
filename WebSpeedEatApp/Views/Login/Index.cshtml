@@ -1,35 +1,46 @@
-﻿@model DTO.Login
+﻿@model DTO.Customers
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h2>Index</h2>
-
-<h4>Login</h4>
+<h2>Customer Login</h2>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Index">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Username" class="control-label"></label>
-                <input asp-for="Username" class="form-control" />
-                <span asp-validation-for="Username" class="text-danger"></span>
+                <label asp-for="CustomersLogin" class="control-label"></label>
+                <input asp-for="CustomersLogin" class="form-control" />
+                <span asp-validation-for="CustomersLogin" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
+                <label asp-for="CustomersPassword" class="control-label"></label>
+                <input asp-for="CustomersPassword" class="form-control" type="password" />
+                <span asp-validation-for="CustomersPassword" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Login" class="btn btn-default" />
             </div>
         </form>
     </div>
 </div>
+<hr />
 
-<div>
-    <a asp-action="Index">Back to List</a>
+
+
+
+<h4>Are you a deliverer ?</h4>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-controller="Login" asp-action="Index2">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input type="submit" value="Deliverer" class="btn btn-success"/>
+            </div>
+        </form>
+    </div>
 </div>
+<hr />
 

@@ -12,6 +12,8 @@ namespace BLL
         ICustomersDB CustomersDB { get; }
 
         List<Customers> GetAllCustomers();
+        int GetIdCustomers(string login);
+        string GetPassCustomers(int id, string login);
 
         Customers GetCustomers(int id);
 

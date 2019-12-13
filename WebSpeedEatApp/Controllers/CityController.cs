@@ -38,7 +38,7 @@ namespace WebSpeedEatApp.Controllers
         }
 
         // GET: City/Details/5
-        
+
         public ActionResult Select(int id)
         {
             RestaurantsManager restaurantsManager = new RestaurantsManager(Configuration); 
@@ -51,6 +51,13 @@ namespace WebSpeedEatApp.Controllers
             DishesManager dishesManager = new DishesManager(Configuration);
             return View(dishesManager.GetAllDishes(id));
         }
+        
+        /*public ActionResult GetAllDelivery(int id)
+        {
+            DeliveryManager deliveryManager = new DeliveryManager(Configuration);
+            return View(deliveryManager.GetAllDelivery(id));
+        }
+        */
 
        
     }

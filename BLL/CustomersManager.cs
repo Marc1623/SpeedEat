@@ -22,6 +22,16 @@ namespace BLL
             return CustomersDB.GetAllCustomers();
         }
 
+        public int GetIdCustomers(string login)
+        {
+            return CustomersDB.GetIdCustomers(login);
+        }
+
+        public string GetPassCustomers(int id, string login)
+        {
+            return CustomersDB.GetPassCustomers(id,login);
+        }
+
         public Customers GetCustomers(int id)
         {
             return CustomersDB.GetCustomers(id);
