@@ -6,17 +6,19 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using DTO;
 using BLL;
+using Microsoft.Extensions.Configuration;
 
 namespace WebSpeedEatApp.Controllers
 {
     public class LoginController : Controller
     {
-        private ILoginManager LoginManager { get; }
-        public LoginController(ILoginManager loginManager)
+        private IConfiguration Configuration { get; }
+        public LoginController(IConfiguration configuration)
         {
-            LoginManager = loginManager;
+            Configuration = configuration;
         }
 
+        /*
         [HttpGet]
         public IActionResult Index()
         {
@@ -30,6 +32,30 @@ namespace WebSpeedEatApp.Controllers
             if (isValid)
             {
                 HttpContext.Session.SetString("Username", l.Username);
+                return RedirectToAction("GetAllCities", "City");
+            }
+            else
+            {
+                return View();
+            }
+        }
+        */
+
+        [HttpGet]
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Index(Customers customers)
+        {
+            CustomersManager customersManager = new CustomersManager(Configuration);
+            int IdCustomers = customersManager.GetIdCustomers(customers.CustomersLogin);
+            string PassCustomers = customersManager.GetPassCustomers(IdCustomers, customers.CustomersLogin);
+            if (customers.CustomersPassword == PassCustomers)
+            {
+                HttpContext.Session.SetInt32("IdCustomer", IdCustomers);
                 return RedirectToAction("GetAllCities", "City");
             }
             else

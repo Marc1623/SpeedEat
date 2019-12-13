@@ -50,6 +50,10 @@ namespace WebSpeedEatApp.Controllers
             DishesManager dishesManager = new DishesManager(Configuration);
             return View(dishesManager.GetAllDishes(id));
         }
+        public IActionResult Deliverer()
+        {
+            return View();
+        }
 
     }
 }

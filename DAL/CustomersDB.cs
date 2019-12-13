@@ -61,6 +61,72 @@ namespace DAL
             return results;
         }
 
+        public int GetIdCustomers(string login)
+        {
+            int idCustomer = 0;
+            string connectionString = Configuration.GetConnectionString("DefaultConnection");
+
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(connectionString))
+                {
+                    string query = "Select IdCustomers from Customers where CustomersLogin = @login";
+                    SqlCommand cmd = new SqlCommand(query, cn);  
+                    cmd.Parameters.AddWithValue("login", login);
+
+                    cn.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        if (dr.Read())
+                        {
+                            idCustomer = (int)dr["IdCustomers"];
+
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return idCustomer;
+        }
+
+        public string GetPassCustomers(int id, string login)
+        {
+            string password = null;
+            string connectionString = Configuration.GetConnectionString("DefaultConnection");
+
+            try
+            {
+                using (SqlConnection cn = new SqlConnection(connectionString))
+                {
+                    string query = "Select CustomersPassword from Customers where IdCustomers = @id and CustomersLogin = @pass";
+                    SqlCommand cmd = new SqlCommand(query, cn);
+                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.Parameters.AddWithValue("@pass", login);
+
+                    cn.Open();
+
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        if (dr.Read())
+                        {
+                            password = (string)dr["CustomersPassword"];
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return password;
+        }
+
         public Customers GetCustomers(int id)
         {
             Customers customers = null;
