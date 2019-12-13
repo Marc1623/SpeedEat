@@ -6,29 +6,33 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using DTO;
 using BLL;
+using Microsoft.Extensions.Configuration;
 
 namespace WebSpeedEatApp.Controllers
 {
     public class LoginDelivererController : Controller
     {
-        private ILoginManager LoginDelivererManager { get; }
-        public LoginDelivererController(ILoginManager loginManager)
+        private IConfiguration Configuration { get; }
+        public LoginDelivererController(IConfiguration configuration)
         {
-            LoginDelivererManager = loginManager;
+            Configuration = configuration;
         }
         // GET: LoginDeliverer
-        public ActionResult Index()
+        [HttpGet]
+        public IActionResult Index2()
         {
             return View();
         }
 
         [HttpPost]
-        public IActionResult Index(Login l)
+        public IActionResult Index2(Customers customers)
         {
-            bool isValid = LoginDelivererManager.IsUserValid(l);
-            if (isValid)
+            DelivererManager delivererManager = new DelivererManager(Configuration);
+            int IdCustomers = delivererManager.GetIdDeliverer(customers.CustomersLogin);
+            string PassCustomers = delivererManager.GetPassDeliverer(IdCustomers, customers.CustomersLogin);
+            if (customers.CustomersPassword == PassCustomers)
             {
-                HttpContext.Session.SetString("Username", l.Username);
+                HttpContext.Session.SetInt32("IdCustomer", IdCustomers);
                 return RedirectToAction("GetAllCities", "City");
             }
             else

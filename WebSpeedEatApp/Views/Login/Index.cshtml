@@ -17,18 +17,30 @@
             </div>
             <div class="form-group">
                 <label asp-for="CustomersPassword" class="control-label"></label>
-                <input asp-for="CustomersPassword" class="form-control" type="password"/>
+                <input asp-for="CustomersPassword" class="form-control" type="password" />
                 <span asp-validation-for="CustomersPassword" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-success pull-right" />
                 <input type="submit" value="Login" class="btn btn-default" />
             </div>
         </form>
     </div>
 </div>
+<hr />
 
-<div>
-    @Html.ActionLink("Are you a Deliverer ?", "Deliverer")
+
+
+
+<h4>Are you a deliverer ?</h4>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-controller="Login" asp-action="Index2">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input type="submit" value="Deliverer" class="btn btn-success"/>
+            </div>
+        </form>
+    </div>
 </div>
+<hr />
 

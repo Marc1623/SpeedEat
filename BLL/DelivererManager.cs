@@ -21,6 +21,15 @@ namespace BLL
         {
             return DelivererDB.GetAllDeliverer();
         }
+        public int GetIdDeliverer(string login)
+        {
+            return DelivererDB.GetIdDeliverer(login);
+        }
+
+        public string GetPassDeliverer(int id, string login)
+        {
+            return DelivererDB.GetPassDeliverer(id, login);
+        }
 
         public Deliverer GetDeliverer(int id)
         {
