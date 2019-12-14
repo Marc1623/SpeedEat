@@ -58,12 +58,14 @@ namespace WebSpeedEatApp.Controllers
             return View(deliveryManager.GetAllDelivery(id));
         }
         */
+
+            /*
         public ActionResult Order(int id)
 
         {
             DishesManager dishesManager = new DishesManager(Configuration);
             return View(dishesManager.GetAllDishes(id));
         }
-
+        */
     }
 }
