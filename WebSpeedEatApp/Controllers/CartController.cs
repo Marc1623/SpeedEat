@@ -13,7 +13,7 @@ using WebSpeedEatApp.Models;
 
 namespace WebSpeedEatApp.Controllers
 {
-   
+
     public class CartController : Controller
     {
         private IConfiguration Configuration { get; }
@@ -23,7 +23,7 @@ namespace WebSpeedEatApp.Controllers
         }
 
         // GET: Cart
-        
+
         public ActionResult Index()
         {
             var cart = SessionHelper.GetObjectAsJason<List<Item>>(HttpContext.Session, "cart");
@@ -60,23 +60,32 @@ namespace WebSpeedEatApp.Controllers
             }
 
             return RedirectToAction("Index", "Cart");
-        } 
-   
+        }
+
         private int Exists(List<Item> cart, int id)
         {
             for (int i = 0; i < cart.Count; i++)
             {
                 if (cart[i].Dishe.IdDishes == id)
-                  {
-                      return i;
-                  }
-              
+                {
+                    return i;
+                }
+
             }
-                return -1;
-            
+            return -1;
+
         }
 
-    
-        
+        public IActionResult Remove(int id)
+        {
+            List<Item> cart = SessionHelper.GetObjectAsJason<List<Item>>(HttpContext.Session, "cart");
+            int index = Exists(cart, id);
+            cart.RemoveAt(index);
+            SessionHelper.SetObjectAsJason(HttpContext.Session, "cart", cart);
+            return RedirectToAction("Index");
+
+
+
+        }
     }
 }
