@@ -4,15 +4,12 @@
     ViewData["Title"] = "ShowDishes";
 }
 
-<h2>Choissisez les plats que vous désirez</h2>
+<h2>Choose the dishes you want</h2>
 
 
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.IdDishes)
-            </th>
             <th>
                 @Html.DisplayNameFor(model => model.DishesName)
             </th>
@@ -22,24 +19,12 @@
             <th>
                 @Html.DisplayNameFor(model => model.DishesPrice)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DishesStatus)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DishesCreated_At)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DishesFk_Id_Restaurants)
-            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdDishes)
-            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.DishesName)
             </td>
@@ -48,20 +33,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.DishesPrice)
-            </td>
+            </td>        
             <td>
-                @Html.DisplayFor(modelItem => item.DishesStatus)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DishesFk_Id_Restaurants)
-            </td>
-            
-            <td>
-                @Html.ActionLink("buy", "buy","cart", new { id = item.IdDishes }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-
+                @Html.ActionLink("buy", "buy","cart", new { id = item.IdDishes }) 
         </tr>
 }
     </tbody>

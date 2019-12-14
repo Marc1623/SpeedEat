@@ -45,7 +45,7 @@ namespace WebSpeedEatApp.Controllers
         
         public ActionResult Index2()
         {
-            return View();
+            return RedirectToAction("Index2", "LoginDeliverer");
         }
     }
 }

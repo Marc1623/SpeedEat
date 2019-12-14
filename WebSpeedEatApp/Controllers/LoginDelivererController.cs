@@ -33,7 +33,7 @@ namespace WebSpeedEatApp.Controllers
             if (deliverer.Password == PassCustomers)
             {
                 HttpContext.Session.SetInt32("IdCustomer", IdCustomers);
-                return RedirectToAction("GetAllCities", "City");
+                return RedirectToAction("GetAllCitiesDeliverer", "City");
             }
             else
             {

@@ -84,8 +84,8 @@ namespace WebSpeedEatApp.Controllers
             SessionHelper.SetObjectAsJason(HttpContext.Session, "cart", cart);
             return RedirectToAction("Index");
 
-
-
         }
+
+  
     }
 }

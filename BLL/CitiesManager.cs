@@ -23,6 +23,11 @@ namespace BLL
             return CitiesDB.GetAllCities();
         }
 
+        public List<Cities> GetAllCitiesDeliverer()
+        {
+            return CitiesDB.GetAllCitiesDeliverer();
+        }
+
         public Cities GetCities(int id)
         {
             return CitiesDB.GetCities(id);

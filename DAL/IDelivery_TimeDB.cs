@@ -4,16 +4,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-
 namespace DAL
 {
-    public interface ICitiesDB
+    public interface IDelivery_TimeDB
     {
         IConfiguration Configuration { get; }
-        List<Cities> GetAllCities();
-        List<Cities> GetAllCitiesDeliverer();
-        Cities GetCities(int id);
-        int DeleteCities(int id);
+        List<Delivery_Time> GetAllTime(int id);
     }
-
 }
