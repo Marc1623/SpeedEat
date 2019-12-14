@@ -7,7 +7,7 @@ using DTO;
 
 namespace BLL
 {
-    public class DelivererManager
+    public class DelivererManager : IDelivererManager
     {
 
         public IDelivererDB DelivererDB { get; }

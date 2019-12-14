@@ -37,6 +37,16 @@ namespace WebSpeedEatApp.Controllers
             return View(cities);
         }
 
+        public ActionResult GetAllCitiesDeliverer([FromQuery(Name = "isValid")] string Valid, [FromQuery(Name = "user")] string user)
+        {
+            CitiesManager citiesM = new CitiesManager(Configuration);
+
+            var cities = citiesM.GetAllCitiesDeliverer();
+            ViewBag.isValid = Valid;
+            ViewBag.user = user;
+            return View(cities);
+        }
+
         // GET: City/Details/5
 
         public ActionResult Select(int id)

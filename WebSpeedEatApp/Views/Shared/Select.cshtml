@@ -4,15 +4,12 @@
     ViewData["Title"] = "RestaurantVIew";
 }
 
-<h2>Resto maggle</h2>
+<h2>Restaurants</h2>
 
 
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.IdRestaurant)
-            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Restaurant_Name)
             </th>
@@ -22,12 +19,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.Phone)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Created_At)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Fk_Id_Cities)
-            </th>
             <th></th>
         </tr>
     </thead>
@@ -36,9 +27,6 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.IdRestaurant)
-                </td>
-                <td>
                     @Html.DisplayFor(modelItem => item.Restaurant_Name)
                 </td>
                 <td>
@@ -46,12 +34,6 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Phone)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Created_At)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Fk_Id_Cities)
                 </td>
                 <td>
                     @Html.ActionLink("Choose", "Choose", new { id = item.IdRestaurant })

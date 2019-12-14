@@ -13,6 +13,8 @@ namespace BLL
 
         List<Cities> GetAllCities();
 
+        List<Cities> GetAllCitiesDeliverer();
+
         Cities GetCities(int id);
 
         int DeleteCities(int id);

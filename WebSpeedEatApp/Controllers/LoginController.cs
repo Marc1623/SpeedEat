@@ -18,29 +18,7 @@ namespace WebSpeedEatApp.Controllers
             Configuration = configuration;
         }
 
-        /*
-        [HttpGet]
-        public IActionResult Index()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult Index(Login l)
-        {
-            bool isValid = LoginManager.IsUserValid(l);
-            if (isValid)
-            {
-                HttpContext.Session.SetString("Username", l.Username);
-                return RedirectToAction("GetAllCities", "City");
-            }
-            else
-            {
-                return View();
-            }
-        }
-        */
-
+      
         [HttpGet]
         public IActionResult Index()
         {
@@ -67,7 +45,7 @@ namespace WebSpeedEatApp.Controllers
         
         public ActionResult Index2()
         {
-            return View();
+            return RedirectToAction("Index2", "LoginDeliverer");
         }
     }
 }
