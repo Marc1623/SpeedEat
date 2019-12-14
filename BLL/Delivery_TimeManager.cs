@@ -8,7 +8,7 @@ using DTO;
 
 namespace BLL
 {
-    class Delivery_TimeManager : IDelivery_TimeManager
+    public class Delivery_TimeManager : IDelivery_TimeManager
     {
         public IDelivery_TimeDB Delivery_TimeDB { get; }
 
