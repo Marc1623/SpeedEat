@@ -11,7 +11,7 @@ namespace BLL
 
         IDelivererDB DelivererDB { get; }
 
-        List<Deliverer> GetAllDeliverers();
+        List<Deliverer> GetAllDeliverer();
 
         int GetIdDeliverer(string login);
         string GetPassDeliverer(int id, string login);
