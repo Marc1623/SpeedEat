@@ -10,7 +10,7 @@ namespace BLL
     {
         IDelivery_TimeDB Delivery_TimeDB { get; }
 
-        List<Delivery_Time> GetAllTime(int id);
+        List<Delivery_Time> GetAllTime();
 
     }
 }

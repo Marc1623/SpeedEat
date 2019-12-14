@@ -48,7 +48,8 @@ namespace WebSpeedEatApp
             services.AddScoped<IDishesDB, DishesDB>();
             services.AddScoped<IDelivererManager, DelivererManager>();
             services.AddScoped<IDelivererDB, DelivererDB>();
-
+            services.AddScoped<IDelivery_TimeManager, Delivery_TimeManager>();
+            services.AddScoped<IDelivery_TimeDB, Delivery_TimeDB>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

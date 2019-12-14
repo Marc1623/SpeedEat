@@ -69,13 +69,8 @@ namespace WebSpeedEatApp.Controllers
         }
         */
 
-            /*
-        public ActionResult Order(int id)
-
-        {
-            DishesManager dishesManager = new DishesManager(Configuration);
-            return View(dishesManager.GetAllDishes(id));
-        }
-        */
+            
+        
+        
     }
 }

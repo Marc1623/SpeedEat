@@ -86,6 +86,18 @@ namespace WebSpeedEatApp.Controllers
 
         }
 
-  
+        public ActionResult Order()
+
+        {
+            Delivery_TimeManager delivery_TimeManager = new Delivery_TimeManager(Configuration);
+            return View(delivery_TimeManager.GetAllTime());
+        }
+
+        public ActionResult Validate()
+        {
+            return View();
+        }
+
+
     }
 }
