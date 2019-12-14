@@ -25,12 +25,12 @@ namespace WebSpeedEatApp.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index2(Customers customers)
+        public IActionResult Index2(Deliverer deliverer)
         {
             DelivererManager delivererManager = new DelivererManager(Configuration);
-            int IdCustomers = delivererManager.GetIdDeliverer(customers.CustomersLogin);
-            string PassCustomers = delivererManager.GetPassDeliverer(IdCustomers, customers.CustomersLogin);
-            if (customers.CustomersPassword == PassCustomers)
+            int IdCustomers = delivererManager.GetIdDeliverer(deliverer.Login);
+            string PassCustomers = delivererManager.GetPassDeliverer(IdCustomers, deliverer.Login);
+            if (deliverer.Password == PassCustomers)
             {
                 HttpContext.Session.SetInt32("IdCustomer", IdCustomers);
                 return RedirectToAction("GetAllCities", "City");
