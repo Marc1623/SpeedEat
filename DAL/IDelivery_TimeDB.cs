@@ -9,6 +9,6 @@ namespace DAL
     public interface IDelivery_TimeDB
     {
         IConfiguration Configuration { get; }
-        List<Delivery_Time> GetAllTime(int id);
+        List<Delivery_Time> GetAllTime();
     }
 }

@@ -15,7 +15,7 @@ namespace DAL
                 Configuration = configuration;
             }
 
-        public List<Delivery_Time> GetAllTime(int id)
+        public List<Delivery_Time> GetAllTime()
         {
             List<Delivery_Time> results = null;
             string ConnectionStrings = Configuration.GetConnectionString("DefaultConnection");
@@ -39,8 +39,8 @@ namespace DAL
                             Delivery_Time delivery_Time = new Delivery_Time();
 
                             delivery_Time.Id = (int)dr["Id"];
-                            delivery_Time.Time_Zone = (String)dr["Time_Zone"];
-                            delivery_Time.Created_At = (String)dr["Created_At"];
+                            delivery_Time.Time_Zone = (string)dr["Time_Zone"];
+                            delivery_Time.Created_At = (string)dr["Created_At"];
                       
 
                             results.Add(delivery_Time);

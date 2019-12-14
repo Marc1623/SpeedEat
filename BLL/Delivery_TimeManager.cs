@@ -8,7 +8,7 @@ using DTO;
 
 namespace BLL
 {
-    class Delivery_TimeManager : IDelivery_TimeManager
+    public class Delivery_TimeManager : IDelivery_TimeManager
     {
         public IDelivery_TimeDB Delivery_TimeDB { get; }
 
@@ -17,9 +17,9 @@ namespace BLL
             Delivery_TimeDB = new Delivery_TimeDB(configuration);
         }
 
-        public List<Delivery_Time> GetAllTime(int id)
+        public List<Delivery_Time> GetAllTime()
         {
-            return Delivery_TimeDB.GetAllTime(id);
+            return Delivery_TimeDB.GetAllTime();
         }
     }
 }
