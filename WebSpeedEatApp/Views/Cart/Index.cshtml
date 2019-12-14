@@ -4,11 +4,12 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>buy</h2>
+<h2>Infos commande</h2>
 
 <table class="table">
     <thead>
         <tr>
+            <th>Option</th>
             <th>
                 @Html.DisplayNameFor(model => model.Dishe.DishesName)
             </th>
@@ -22,20 +23,26 @@
         @foreach (var item in Model)
         {
             <tr>
+                <td><a asp-controller="cart" asp-action="remove" asp-route-id="@item.Dishe.IdDishes">Remove</a></td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Dishe.DishesName)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Quantity)
                 </td>
-                
+
             </tr>
         }
 
         <tr>
             <td>
-                @ViewBag.total
+                total de la comande :  @ViewBag.total Francs
             </td>
         </tr>
+
+
     </tbody>
 </table>
+
+<br>
+<a asp-controller="cart" asp-action="Index">Continue Shopping</a>
