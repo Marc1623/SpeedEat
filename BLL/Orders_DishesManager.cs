@@ -31,15 +31,7 @@ namespace BLL
             return Orders_DishesDB.AddOrders_Dishes(orders_Dishes);
         }
 
-        /*public Orders_Dishes UpdateOrders_Dishes(Orders_Dishes orders_Dishes)
-        {
-            return Orders_DishesDB.UpdateOrders_Dishes(orders_Dishes);
-        }*/
-
-        /*public int DeleteOrders_Dishes(int id)
-        {
-            return Orders_DishesDB.DeleteOrders_Dishes(id);
-        }*/
+       
 
       
     }

@@ -18,9 +18,7 @@ namespace BLL
 
         Orders_Dishes AddOrders_Dishes(Orders_Dishes orders_Dishes);
 
-       // Orders_Dishes UpdateOrders_Dishes(Orders_Dishes Orders_Dishes);
-
-       // int DeleteOrders_Dishes(int id);
+  
     }
 
 }

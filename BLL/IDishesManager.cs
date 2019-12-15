@@ -17,9 +17,7 @@ namespace BLL
 
         Dishes AddDishes(Dishes dishes);
 
-      //  Dishes UpdateDishes(Dishes dishes);
-
-      //  int DeleteDishes(int id);
+   
     }
 
 }

@@ -28,19 +28,5 @@ namespace BLL
             return RestaurantsDB.GetRestaurants(id);
         }
 
-       /* public Restaurants AddRestaurants(Restaurants restaurants)
-        {
-            return RestaurantsDB.AddRestaurants(restaurants);
-        }
-
-        public Restaurants UpdateRestaurants(Restaurants restaurants)
-        {
-            return RestaurantsDB.UpdateRestaurants(restaurants);
-        }
-
-        public int DeleteRestaurants(int id)
-        {
-            return RestaurantsDB.DeleteRestaurants(id);
-        }*/
     }
 }

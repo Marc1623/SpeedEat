@@ -24,11 +24,7 @@ namespace WebSpeedEatApp.Controllers
             return View();
         }
 
-        // GET: Restaurants/Details/5
-        /*public ActionResult Details(int id)
-        {
-            return View();
-        }*/
+        
 
         public ActionResult GetAllRestaurants(int id)
         {
