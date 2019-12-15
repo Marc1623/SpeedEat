@@ -14,7 +14,8 @@ namespace DAL
         {
             Configuration = configuration;
         }
-
+        //show all the Orders from each city so the deliverer can choose
+        //where he work
         public List<Orders_Dishes> GetAllOrders_Dishes(int id)
         {
             List<Orders_Dishes> results = null;

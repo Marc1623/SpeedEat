@@ -17,6 +17,8 @@ namespace WebSpeedEatApp.Controllers
         {
             return View();
         }
+
+        //should save the Orders in the orders dishes tab 
         [HttpPost]
         public IActionResult Create([Bind] Orders_Dishes orders_Dishes)
         {

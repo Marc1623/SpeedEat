@@ -29,6 +29,8 @@ namespace WebSpeedEatApp.Controllers
             return View();
         }
 
+
+        //show all dishes where the id is the same as the fk id for restaurants
         public ActionResult GetAllDishes(int id)
         {
             var dishes = DishesManager.GetAllDishes(id);

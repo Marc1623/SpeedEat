@@ -15,7 +15,8 @@ namespace DAL
         {
             Configuration = configuration;
         }
-
+        //show all the customers that are the same as the FK id orders 
+        //so the deliverer is able to know which order is for who
         public List<Customers> GetAllCustomers(int id)
         {
             List<Customers> results = null;
@@ -63,7 +64,8 @@ namespace DAL
             }
             return results;
         }
-
+        //check if the id is equal to customerslogin so we are able to know if the customers is 
+        //already register in a DB
         public int GetIdCustomers(string login)
         {
             int idCustomer = 0;
@@ -96,7 +98,7 @@ namespace DAL
 
             return idCustomer;
         }
-
+        //check if the passeword is link to the username the customers enter
         public string GetPassCustomers(int id, string login)
         {
             string password = null;

@@ -11,7 +11,7 @@ namespace WebSpeedEatApp.Models
 {
     public class AddDishes
     {
-
+        //add the infos from the customer and his orders to the DB orders dishes
         SqlConnection con = new SqlConnection("Server=153.109.124.35;Database=Kohl_Vial_Projet;User Id=6231db;Password=Pwd46231.;MultipleActiveResultSets=true");
         public string AddDishesRecord(Orders_Dishes orders_Dishes)
         {

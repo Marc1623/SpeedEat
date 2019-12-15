@@ -15,7 +15,7 @@ namespace DAL
         {
             Configuration = configuration;
         }
-
+        //get all the city to show for the customers
         public List<Cities> GetAllCities()
         {
             List<Cities> results = null;
@@ -57,6 +57,7 @@ namespace DAL
             return results;
         }
 
+        //get all the city to show for the deliverer
         public List<Cities> GetAllCitiesDeliverer()
         {
             List<Cities> results = null;

@@ -25,7 +25,7 @@ namespace WebSpeedEatApp.Controllers
         }
 
         
-
+        //show a list of restaurants 
         public ActionResult GetAllRestaurants(int id)
         {
             RestaurantsManager restaurantsManager = new RestaurantsManager(Configuration);

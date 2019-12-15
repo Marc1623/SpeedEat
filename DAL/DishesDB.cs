@@ -15,7 +15,8 @@ namespace DAL
         {
             Configuration = configuration;
         }
-
+        //show all the dishes that their id is equal to Fk id restaurant
+        // so we are able to list only dishes that are specific for each restaurants
         public List<Dishes> GetAllDishes(int id)
         {
             List<Dishes> results = null;

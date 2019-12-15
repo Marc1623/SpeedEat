@@ -14,7 +14,7 @@ namespace DAL
             {
                 Configuration = configuration;
             }
-
+        //show a list of time for each 15min
         public List<Delivery_Time> GetAllTime()
         {
             List<Delivery_Time> results = null;

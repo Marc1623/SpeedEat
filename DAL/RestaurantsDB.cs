@@ -14,7 +14,7 @@ namespace DAL
         {
             Configuration = configuration;
         }
-
+        //list every restaurants from every city
         public List<Restaurants> GetAllRestaurants(int id)
         {
             List<Restaurants> results = null;

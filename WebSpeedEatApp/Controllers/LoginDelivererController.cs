@@ -24,6 +24,8 @@ namespace WebSpeedEatApp.Controllers
             return View();
         }
 
+        //test if the username is correct and the password is the same in the DB
+        // if yes it show a list of city
         [HttpPost]
         public IActionResult Index2(Deliverer deliverer)
         {
