@@ -15,9 +15,9 @@ namespace BLL
 
         List<Cities> GetAllCitiesDeliverer();
 
-        Cities GetCities(int id);
+      //  Cities GetCities(int id);
 
-        int DeleteCities(int id);
+       // int DeleteCities(int id);
     }
 
 }

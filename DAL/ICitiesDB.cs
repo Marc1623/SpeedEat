@@ -12,8 +12,8 @@ namespace DAL
         IConfiguration Configuration { get; }
         List<Cities> GetAllCities();
         List<Cities> GetAllCitiesDeliverer();
-        Cities GetCities(int id);
-        int DeleteCities(int id);
+      //  Cities GetCities(int id);
+       // int DeleteCities(int id);
     }
 
 }

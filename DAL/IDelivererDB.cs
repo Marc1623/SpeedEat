@@ -12,11 +12,11 @@ namespace DAL
         IConfiguration Configuration { get; }
         List<Deliverer> GetAllDeliverer();
         Deliverer GetDeliverer(int id);
-        Deliverer AddDeliverer(Deliverer deliverer);
+        //Deliverer AddDeliverer(Deliverer deliverer);
         int GetIdDeliverer(string login);
         string GetPassDeliverer(int id, string login);
-        Deliverer UpdateDeliverer(Deliverer deliverer);
-        int DeleteDeliverer(int id);
+        //Deliverer UpdateDeliverer(Deliverer deliverer);
+        //int DeleteDeliverer(int id);
     }
 
 }

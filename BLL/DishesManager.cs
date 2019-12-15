@@ -33,14 +33,14 @@ namespace BLL
             return DishesDB.AddDishes(dishes);
         }
 
-        public Dishes UpdateDishes(Dishes dishes)
+        /*public Dishes UpdateDishes(Dishes dishes)
         {
             return DishesDB.UpdateDishes(dishes);
-        }
+        }*/
 
-        public int DeleteDishes(int id)
+       /* public int DeleteDishes(int id)
         {
             return DishesDB.DeleteDishes(id);
-        }
+        }*/
     }
 }

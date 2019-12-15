@@ -16,11 +16,11 @@ namespace BLL
 
         Restaurants GetRestaurants(int id);
 
-        Restaurants AddRestaurants(Restaurants restaurants);
+       // Restaurants AddRestaurants(Restaurants restaurants);
 
-        Restaurants UpdateRestaurants(Restaurants restaurants);
+       // Restaurants UpdateRestaurants(Restaurants restaurants);
 
-        int DeleteRestaurants(int id);
+      //  int DeleteRestaurants(int id);
     }
 
 }

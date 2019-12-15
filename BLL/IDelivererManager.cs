@@ -17,11 +17,11 @@ namespace BLL
         string GetPassDeliverer(int id, string login);
         Deliverer GetDeliverer(int id);
 
-        Deliverer AddDeliverer(Deliverer deliverer);
+      //  Deliverer AddDeliverer(Deliverer deliverer);
 
-        Deliverer UpdateDeliverer(Deliverer deliverer);
+       // Deliverer UpdateDeliverer(Deliverer deliverer);
 
-        int DeleteDeliverer(int id);
+       // int DeleteDeliverer(int id);
     }
 
 }

@@ -143,7 +143,7 @@ namespace DAL
             return orders_Dishes;
         }
 
-        public Orders_Dishes UpdateOrders_Dishes(Orders_Dishes orders_Dishes)
+        /*public Orders_Dishes UpdateOrders_Dishes(Orders_Dishes orders_Dishes)
         {
 
             int result = 0;
@@ -204,7 +204,7 @@ namespace DAL
             }
 
             return result;
-        }
+        }*/
 
         
 

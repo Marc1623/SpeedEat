@@ -36,19 +36,19 @@ namespace BLL
             return DelivererDB.GetDeliverer(id);
         }
 
-        public Deliverer AddDeliverer(Deliverer deliverer)
+       /* public Deliverer AddDeliverer(Deliverer deliverer)
         {
             return DelivererDB.AddDeliverer(deliverer);
-        }
+        }*/
 
-        public Deliverer UpdateDeliverer(Deliverer deliverer)
+       /* public Deliverer UpdateDeliverer(Deliverer deliverer)
         {
             return DelivererDB.UpdateDeliverer(deliverer);
-        }
+        }*/
 
-        public int DeleteDeliverer(int id)
+       /* public int DeleteDeliverer(int id)
         {
             return DelivererDB.DeleteDeliverer(id);
-        }
+        }*/
     }
 }

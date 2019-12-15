@@ -28,7 +28,7 @@ namespace BLL
             return RestaurantsDB.GetRestaurants(id);
         }
 
-        public Restaurants AddRestaurants(Restaurants restaurants)
+       /* public Restaurants AddRestaurants(Restaurants restaurants)
         {
             return RestaurantsDB.AddRestaurants(restaurants);
         }
@@ -41,6 +41,6 @@ namespace BLL
         public int DeleteRestaurants(int id)
         {
             return RestaurantsDB.DeleteRestaurants(id);
-        }
+        }*/
     }
 }

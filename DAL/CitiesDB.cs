@@ -98,7 +98,7 @@ namespace DAL
             return results;
         }
 
-        public Cities GetCities(int id)
+        /*public Cities GetCities(int id)
         {
             Cities cities = null;
             string connectionString = Configuration.GetConnectionString("DefaultConnection");
@@ -143,9 +143,9 @@ namespace DAL
             }
 
             return cities;
-        }
+        }*/
 
-        public Cities AddCities(Cities cities)
+       /* public Cities AddCities(Cities cities)
         {
 
 
@@ -174,10 +174,10 @@ namespace DAL
             }
 
             return cities;
-        }
+        }*/
 
 
-        public int DeleteCities(int id)
+        /*public int DeleteCities(int id)
         {
             int result = 0;
 
@@ -204,7 +204,7 @@ namespace DAL
             }
 
             return result;
-        }
+        }*/
     }
 
 }

@@ -149,7 +149,7 @@ namespace DAL
             return dishes;
         }
 
-        public Dishes UpdateDishes(Dishes dishes)
+       /* public Dishes UpdateDishes(Dishes dishes)
         {
             int result = 0;
 
@@ -209,7 +209,7 @@ namespace DAL
             }
 
             return result;
-        }
+        }*/
     }
 
 }

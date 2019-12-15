@@ -186,7 +186,7 @@ namespace DAL
             return deliverer;
         }
 
-        public Deliverer AddDeliverer(Deliverer deliverer)
+        /*public Deliverer AddDeliverer(Deliverer deliverer)
         {
 
 
@@ -283,7 +283,7 @@ namespace DAL
             }
 
             return result;
-        }
+        }*/
     }
 
 }

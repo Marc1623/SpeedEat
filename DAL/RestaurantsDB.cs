@@ -110,7 +110,7 @@ namespace DAL
             return restaurants;
         }
 
-        public Restaurants AddRestaurants(Restaurants restaurants)
+        /*public Restaurants AddRestaurants(Restaurants restaurants)
         {
 
 
@@ -206,7 +206,7 @@ namespace DAL
             }
 
             return result;
-        }
+        }*/
 
 
     }
