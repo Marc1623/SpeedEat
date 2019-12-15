@@ -22,7 +22,7 @@ namespace WebSpeedEatApp.Controllers
             Configuration = configuration;
         }
 
-        // GET: Cart
+        // This method is here to show and calculate the sum of the Item we select 
 
         public ActionResult Index()
         {
@@ -33,6 +33,7 @@ namespace WebSpeedEatApp.Controllers
             return View(cart);
         }
 
+        //this method is the "shopping bag" we use it to add to the session some item and look if the Item exists already and if it exists, it incremement the quantity
         public ActionResult buy(int id)
         {
 
@@ -62,6 +63,7 @@ namespace WebSpeedEatApp.Controllers
             return RedirectToAction("Index", "Cart");
         }
 
+        // method that looks if the id of the dishes we select exsits already
         private int Exists(List<Item> cart, int id)
         {
             for (int i = 0; i < cart.Count; i++)
@@ -75,7 +77,7 @@ namespace WebSpeedEatApp.Controllers
             return -1;
 
         }
-
+        // method that able you to remove a dish that you selected
         public IActionResult Remove(int id)
         {
             List<Item> cart = SessionHelper.GetObjectAsJason<List<Item>>(HttpContext.Session, "cart");
@@ -85,14 +87,14 @@ namespace WebSpeedEatApp.Controllers
             return RedirectToAction("Index");
 
         }
-
+        // open all the time you can be delivered if you clic on Order
         public ActionResult Order()
 
         {
             Delivery_TimeManager delivery_TimeManager = new Delivery_TimeManager(Configuration);
             return View(delivery_TimeManager.GetAllTime());
         }
-
+        // show the view of Validate when you clic on Validate
         public ActionResult Validate()
         {
             Orders_DishesManager orders_DishesManager = new Orders_DishesManager(Configuration);
