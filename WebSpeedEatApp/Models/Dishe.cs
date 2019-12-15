@@ -6,13 +6,10 @@ using System.Threading.Tasks;
 namespace WebSpeedEatApp.Models
 {
 
-
+    //same information as in the DTO
     public partial class Dishe
     {
-        /*public Dishes()
-        {
-            this.Dishes_Order = new HashSet<Dishes_Order>();
-        }*/
+     
 
         public int IdDishes { get; set; }
         public string DishesName { get; set; }
@@ -22,7 +19,6 @@ namespace WebSpeedEatApp.Models
         public int DishesFk_Id_Restaurants { get; set; }
 
 
-        // public virtual ICollection<dishes_order> dishes_order { get; set; }
-        //  public virtual restaurants restaurants { get; set; }
+        
     }
 }

@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 
 namespace WebSpeedEatApp.Helpers
 {
+
+    // SessionHelper help to keep the information saved in the session
     public static class SessionHelper
     {
         public static void SetObjectAsJason(this ISession session, string key, object value)
