@@ -95,6 +95,8 @@ namespace WebSpeedEatApp.Controllers
 
         public ActionResult Validate()
         {
+            Orders_DishesManager orders_DishesManager = new Orders_DishesManager(Configuration);
+            //orders_DishesManager.AddOrders_Dishes();
             return View();
         }
 
