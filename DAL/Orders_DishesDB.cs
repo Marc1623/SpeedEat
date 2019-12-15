@@ -144,68 +144,7 @@ namespace DAL
             return orders_Dishes;
         }
 
-        /*public Orders_Dishes UpdateOrders_Dishes(Orders_Dishes orders_Dishes)
-        {
-
-            int result = 0;
-            string connectionString = Configuration.GetConnectionString("DefaultConnection");
-
-            try
-            {
-                using (SqlConnection cn = new SqlConnection(connectionString))
-                {
-                    string query = "UPDATE Orders_Dishes SET Oders_DishesQuantity = @Oders_DishesQuantity, Oders_DishesCreated_At = @Oders_DishesCreated_At, Oders_DishesFk_Id_Orders = @Oders_DishesFk_Id_Orders, Oders_DishesFk_Id_Dishes = @Oders_DishesFk_Id_Dishes WHERE IdOders_Dishes = @IdOders_Dishes";
-                    SqlCommand cmd = new SqlCommand(query, cn);
-                    cmd.Parameters.AddWithValue("@IdOders_Dishes", orders_Dishes.IdOders_Dishes);
-                    cmd.Parameters.AddWithValue("@Oders_DishesQuantity", orders_Dishes.Oders_DishesQuantity);
-                    cmd.Parameters.AddWithValue("@Oders_DishesCreated_At", orders_Dishes.Oders_DishesCreated_At);
-                    cmd.Parameters.AddWithValue("@Oders_DishesFk_Id_Orders", orders_Dishes.Oders_DishesFk_Id_Orders);
-                    cmd.Parameters.AddWithValue("@Oders_DishesFk_Id_Dishes", orders_Dishes.Oders_DishesFk_Id_Dishes);
-
-
-                    cn.Open();
-
-                    result = cmd.ExecuteNonQuery();
-
-                }
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-
-            return orders_Dishes;
-        }
-
-
-        public int DeleteOrders_Dishes(int id)
-        {
-            int result = 0;
-
-            string connectionString = Configuration.GetConnectionString("DefaultConnection");
-
-            try
-            {
-                using (SqlConnection cn = new SqlConnection(connectionString))
-                {
-                    string query = "DELETE from Orders_Dishes where IdOders_Dishes = @IdOders_Dishes";
-                    SqlCommand cmd = new SqlCommand(query, cn);
-                    cmd.Parameters.AddWithValue("@id", id);
-
-
-                    cn.Open();
-
-                    result = cmd.ExecuteNonQuery();
-
-                }
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-
-            return result;
-        }*/
+       
 
         
 
