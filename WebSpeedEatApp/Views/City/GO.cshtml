@@ -1,0 +1,51 @@
+﻿@model IEnumerable<DTO.Customers>
+
+@{
+    ViewData["Title"] = "GO";
+}
+
+<h2>The Order Should be Delivered at this adress</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomersName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomersLastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomersPhone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomersAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomersCity)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomersName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomersLastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomersPhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomersAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomersCity)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

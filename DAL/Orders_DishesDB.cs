@@ -15,7 +15,7 @@ namespace DAL
             Configuration = configuration;
         }
 
-        public List<Orders_Dishes> GetAllOrders_Dishes()
+        public List<Orders_Dishes> GetAllOrders_Dishes(int id)
         {
             List<Orders_Dishes> results = null;
             string ConnectionStrings = Configuration.GetConnectionString("DefaultConnection");
@@ -24,8 +24,9 @@ namespace DAL
             {
                 using (SqlConnection cn = new SqlConnection(ConnectionStrings))
                 {
-                    string query = "SELECT * from Orders_Dishes";
+                    string query = "SELECT * from Orders_Dishes WHERE Fk_Id_Cities = @id";
                     SqlCommand cmd = new SqlCommand(query, cn);
+                    cmd.Parameters.AddWithValue("@id", id);
 
                     cn.Open();
 
@@ -43,8 +44,8 @@ namespace DAL
                             orders_Dishes.Oders_DishesCreated_At = (String)dr["Oders_DishesCreated_At"];
                             orders_Dishes.Oders_DishesFk_Id_Orders = (int)dr["Oders_DishesFk_Id_Orders"];
                             orders_Dishes.Oders_DishesFk_Id_Dishes = (int)dr["Oders_DishesFk_Id_Dishes"];
-                            
-
+                            orders_Dishes.Fk_Id_Cities = (int)dr["Fk_Id_Cities"];
+                            orders_Dishes.Fk_Id_Customers = (int)dr["Fk_Id_Customers"];
 
 
                             results.Add(orders_Dishes);

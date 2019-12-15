@@ -1,0 +1,39 @@
+﻿@model IEnumerable<DTO.Orders_Dishes>
+
+@{
+    ViewData["Title"] = "Take";
+}
+
+<h2>Take</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Oders_DishesQuantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Oders_DishesCreated_At)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Oders_DishesQuantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Oders_DishesCreated_At)
+            </td>
+            <td>
+                @Html.ActionLink("Choose", "GO", new { id=item.IdOders_Dishes }) |
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

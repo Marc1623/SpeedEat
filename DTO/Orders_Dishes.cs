@@ -16,12 +16,12 @@ namespace DTO
 
         public int Oders_DishesFk_Id_Dishes { get; set; }
 
-    
-
+        public int Fk_Id_Cities { get; set; }
+        public int Fk_Id_Customers { get; set; }
 
         public override string ToString()
         {
-            return $"{IdOders_Dishes}|{Oders_DishesQuantity}|{Oders_DishesCreated_At}|{Oders_DishesFk_Id_Orders}|{Oders_DishesFk_Id_Dishes}";
+            return $"{IdOders_Dishes}|{Oders_DishesQuantity}|{Oders_DishesCreated_At}|{Oders_DishesFk_Id_Orders}|{Oders_DishesFk_Id_Dishes}|{Fk_Id_Cities}||{Fk_Id_Customers}";
         }
     }
 }

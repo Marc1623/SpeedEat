@@ -16,7 +16,7 @@ namespace DAL
             Configuration = configuration;
         }
 
-        public List<Customers> GetAllCustomers()
+        public List<Customers> GetAllCustomers(int id)
         {
             List<Customers> results = null;
             string ConnectionStrings = Configuration.GetConnectionString("DefaultConnection");
@@ -25,9 +25,9 @@ namespace DAL
             {
                 using (SqlConnection cn = new SqlConnection(ConnectionStrings))
                 {
-                    string query = "SELECT * from Customers";
+                    string query = "SELECT * from Customers WHERE Fk_Id_Oders_Dishes = @id";
                     SqlCommand cmd = new SqlCommand(query, cn);
-
+                    cmd.Parameters.AddWithValue("@id", id);
                     cn.Open();
 
                     using (SqlDataReader dr = cmd.ExecuteReader())
@@ -40,14 +40,17 @@ namespace DAL
                             Customers customers = new Customers();
 
                             customers.IdCustomers = (int)dr["IdCustomers"];
-                            customers.CustomerstName = (String)dr["CustomerstName"];
+                            customers.CustomersName = (String)dr["CustomersName"];
                             customers.CustomersLastName = (String)dr["CustomersLastName"];
                             customers.CustomersPhone = (String)dr["CustomersPhone"];
                             customers.CustomersAddress = (String)dr["CustomersAddress"];
+                            customers.CustomersCity = (String)dr["CustomersCity"];
+                            customers.CustomersZip = (String)dr["CustomersZip"];
                             customers.CustomersLogin = (String)dr["CustomersLogin"];
                             customers.CustomersPassword = (String)dr["CustomersPassword"];
                             customers.CustomersCreated_At = (String)dr["CustomersCreated_At"];
                             customers.CustomersFk_Id_Cities = (int)dr["CustomersFk_Id_Cities"];
+                            customers.Fk_Id_Oders_Dishes = (int)dr["Fk_Id_Oders_Dishes"];
 
                             results.Add(customers);
                         }
@@ -152,7 +155,7 @@ namespace DAL
                                 customers.IdCustomers = (int)dr["IdCustomers"];
 
                             if (dr["Name"] != null)
-                                customers.CustomerstName = (string)dr["CustomersName"];
+                                customers.CustomersName = (string)dr["CustomersName"];
 
                             if (dr["LastName"] != null)
                                 customers.CustomersLastName = (string)dr["LastName"];
@@ -199,7 +202,7 @@ namespace DAL
                 {
                     string query = "Insert into Customers(CustomersName, CustomersLastName, CustomersPhone, CustomersAddress, CustomersLogin, CustomersPassword, CustomersCreated_At, CustomersFk_Id_Cities) values(@CustomersName, @CustomersLastName, @CustomersPhone, @CustomersAddress, @CustomersLogin, @CustomersPassword, @CustomersCreated_At, @CustomersFk_Id_Cities); SELECT SCOPE_IDENTITY()";
                     SqlCommand cmd = new SqlCommand(query, cn);
-                    cmd.Parameters.AddWithValue("@CustomersName", customers.CustomerstName);
+                    cmd.Parameters.AddWithValue("@CustomersName", customers.CustomersName);
                     cmd.Parameters.AddWithValue("@CustomersLastName", customers.CustomersLastName);
                     cmd.Parameters.AddWithValue("@CustomersPhone", customers.CustomersPhone);
                     cmd.Parameters.AddWithValue("@CustomersAddress", customers.CustomersAddress);
@@ -234,7 +237,7 @@ namespace DAL
                 {
                     string query = "UPDATE Customers SET CustomersName = @CustomersName, CustomersLastName = @CustomersLastName, CustomersPhone = @CustomersPhone, CustomersAddress = @CustomersAddress, CustomersLogin = @CustomersLogin, CustomersPassword = @CustomersPassword, CustomersCreated_At = @CustomersCreated_At, CustomersFk_Id_Cities = @CustomersFk_Id_Cities WHERE IdCustomers = @id";
                     SqlCommand cmd = new SqlCommand(query, cn);
-                    cmd.Parameters.AddWithValue("@CustomersName", customers.CustomerstName);
+                    cmd.Parameters.AddWithValue("@CustomersName", customers.CustomersName);
                     cmd.Parameters.AddWithValue("@CustomersLastName", customers.CustomersLastName);
                     cmd.Parameters.AddWithValue("@CustomersPhone", customers.CustomersPhone);
                     cmd.Parameters.AddWithValue("@CustomersAddress", customers.CustomersAddress);

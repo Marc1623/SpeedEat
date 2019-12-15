@@ -17,9 +17,9 @@ namespace BLL
             CustomersDB = new CustomersDB(configuration);
         }
 
-        public List<Customers> GetAllCustomers()
+        public List<Customers> GetAllCustomers(int id)
         {
-            return CustomersDB.GetAllCustomers();
+            return CustomersDB.GetAllCustomers(id);
         }
 
         public int GetIdCustomers(string login)
