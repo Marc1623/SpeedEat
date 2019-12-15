@@ -13,8 +13,7 @@ namespace DAL
         List<Dishes> GetAllDishes(int id);
         Dishes GetDishes(int id);
         Dishes AddDishes(Dishes dishes);
-        //Dishes UpdateDishes(Dishes dishes);
-       // int DeleteDishes(int id);
+     
     }
 
 }

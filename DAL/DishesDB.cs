@@ -149,67 +149,7 @@ namespace DAL
             return dishes;
         }
 
-       /* public Dishes UpdateDishes(Dishes dishes)
-        {
-            int result = 0;
-
-            string connectionString = Configuration.GetConnectionString("DefaultConnection");
-
-            try
-            {
-                using (SqlConnection cn = new SqlConnection(connectionString))
-                {
-                    string query = "UPDATE Dishes SET DishesName = @DishesName, DishesDescription = @DishesDescription, DishesPrice = @DishesPrice, DishesStatus = @DishesStatus, DishesCreated_At = @DishesCreated_At, DishesFk_Id_Restaurants = @DishesFk_Id_Restaurants WHERE IdDishes = @id";
-                    SqlCommand cmd = new SqlCommand(query, cn);
-                    cmd.Parameters.AddWithValue("@DishesName", dishes.DishesName);
-                    cmd.Parameters.AddWithValue("@DishesDescription", dishes.DishesDescription);
-                    cmd.Parameters.AddWithValue("@DishesPrice", dishes.DishesPrice);
-                    cmd.Parameters.AddWithValue("@DishesStatus", dishes.DishesStatus);
-                    cmd.Parameters.AddWithValue("@DishesCreated_At", dishes.DishesCreated_At);
-                    cmd.Parameters.AddWithValue("@DishesFk_Id_Restaurants", dishes.DishesFk_Id_Restaurants);
-
-                    cn.Open();
-
-                    result = cmd.ExecuteNonQuery();
-
-                }
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-
-            return dishes;
-        }
-
-        public int DeleteDishes(int id)
-        {
-            int result = 0;
-
-            string connectionString = Configuration.GetConnectionString("DefaultConnection");
-
-            try
-            {
-                using (SqlConnection cn = new SqlConnection(connectionString))
-                {
-                    string query = "DELETE from Dishes where IdDishes = @id";
-                    SqlCommand cmd = new SqlCommand(query, cn);
-                    cmd.Parameters.AddWithValue("@id", id);
-
-
-                    cn.Open();
-
-                    result = cmd.ExecuteNonQuery();
-
-                }
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-
-            return result;
-        }*/
+      
     }
 
 }

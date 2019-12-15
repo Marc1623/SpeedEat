@@ -27,6 +27,7 @@ namespace WebSpeedEatApp.Controllers
             return View();
         }
 
+        //Get all the cities if the user is valid 
         public ActionResult GetAllCities([FromQuery(Name = "isValid")] string Valid, [FromQuery(Name = "user")] string user)
         {
             CitiesManager citiesM = new CitiesManager(Configuration);
@@ -36,7 +37,7 @@ namespace WebSpeedEatApp.Controllers
             ViewBag.user = user;
             return View(cities);
         }
-
+        //Get all the cities for deliverer if the Deliverer is valid 
         public ActionResult GetAllCitiesDeliverer([FromQuery(Name = "isValid")] string Valid, [FromQuery(Name = "user")] string user)
         {
             CitiesManager citiesM = new CitiesManager(Configuration);
@@ -46,26 +47,26 @@ namespace WebSpeedEatApp.Controllers
             ViewBag.user = user;
             return View(cities);
         }
-
+        //Get all restaurant when you clic on Select
         public ActionResult Select(int id)
         {
             RestaurantsManager restaurantsManager = new RestaurantsManager(Configuration); 
             return View(restaurantsManager.GetAllRestaurants(id));
         }
-
+        //Get all Dishes when you clic on Choose
         public ActionResult Choose(int id)
 
         {
             DishesManager dishesManager = new DishesManager(Configuration);
             return View(dishesManager.GetAllDishes(id));
         }
-
+        //Get all Orders_Dishes when you clic on Take
         public ActionResult Take(int id)
         {
             Orders_DishesManager orders_DishesManager = new Orders_DishesManager(Configuration);
             return View(orders_DishesManager.GetAllOrders_Dishes(id));
         }
-
+        //Get all customer when you clic on Go to show the customer infos for Deliverer
         public ActionResult GO(int id)
         {
             CustomersManager customersManager = new CustomersManager(Configuration);
