@@ -16,9 +16,9 @@ namespace BLL
             Orders_DishesDB = new Orders_DishesDB(configuration);
         }
 
-        public List<Orders_Dishes> GetAllOrders_Dishes()
+        public List<Orders_Dishes> GetAllOrders_Dishes(int id)
         {
-            return Orders_DishesDB.GetAllOrders_Dishes();
+            return Orders_DishesDB.GetAllOrders_Dishes(id);
         }
 
         public Orders_Dishes GetOrders_Dishes(int id)

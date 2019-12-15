@@ -10,7 +10,7 @@ namespace DAL
     public interface ICustomersDB
     {
         IConfiguration Configuration { get; }
-        List<Customers> GetAllCustomers();
+        List<Customers> GetAllCustomers(int id);
         Customers GetCustomers(int id);
         int GetIdCustomers(string login);
         string GetPassCustomers(int id,string login);

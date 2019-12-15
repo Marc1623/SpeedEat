@@ -11,7 +11,7 @@ namespace BLL
 
         IOrders_DishesDB Orders_DishesDB { get; }
 
-        List<Orders_Dishes> GetAllOrders_Dishes();
+        List<Orders_Dishes> GetAllOrders_Dishes(int id);
 
         Orders_Dishes GetOrders_Dishes(int id);
         Orders_Dishes GetOrders_DishesQuantity(int id);
